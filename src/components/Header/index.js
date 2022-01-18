@@ -12,18 +12,6 @@ const Container = styled.div`
 	padding: 0 calc((100vw - (1280px)) / 2);
 	box-sizing: border-box;
 
-	::before {
-		background-color: #f7f8fa;
-		width: 100%;
-		height: 0;
-		position: absolute;
-		top: 122px;
-		left: 0;
-		transition: all 0.3s;
-		opacity: 90%;
-		content: "";
-	}
-
 	.inner {
 		width: 1280px;
 		margin: 0 auto;
@@ -88,6 +76,23 @@ const Container = styled.div`
 				content: "";
 				clear: both;
 			}
+		}
+		
+		::before {
+			content: "";
+			position: absolute;
+			width: 100vw;
+			height: 0;
+			left: 0;
+			margin-left: calc(-50vw + 50%);
+			margin-top: 8.5rem;
+			transition: all 0.3s;
+			opacity: 90%;
+			background-color: #f7f8fa;
+		}
+		
+		&.active::before {
+			height: 20rem;
 		}
 	}
 
@@ -185,7 +190,7 @@ const Header = () => {
 					</li>
 				</ul>
 			</Utils>
-			<div className={"inner"}>
+			<div className={`inner ${isHover ? "active" : ""}`}>
 				<div className={"logo"}>
 					<a href={"/"}>
 						<img src={logo} alt={"biomedical"}/>
