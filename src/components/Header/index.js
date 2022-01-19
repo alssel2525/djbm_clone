@@ -9,7 +9,7 @@ const Container = styled.div`
 	position: absolute;
 	top: 0;
 	z-index: 99;
-	padding: 0 calc((100vw - (1280px)) / 2) 0.1px; // 내부 height 설정을 위해 padding-bottom을 0.1px로 함.
+	padding: 0 calc((100vw - (1280px)) / 2);
 	box-sizing: border-box;
 	background-color: white;
 
