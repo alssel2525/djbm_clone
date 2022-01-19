@@ -6,11 +6,11 @@ import {Link} from "react-router-dom";
 const Container = styled.div`
 	width: 100vw;
 	margin: 0 auto;
-	position: absolute;
-	top: 0;
+	position: relative;
 	z-index: 99;
-	padding: 0 calc((100vw - (1280px)) / 2);
+	padding: 0 calc((100vw - (1280px)) / 2) 0.1px; // 내부 height 설정을 위해 padding-bottom을 0.1px로 함.
 	box-sizing: border-box;
+	background-color: white;
 
 	.inner {
 		width: 1280px;
@@ -69,12 +69,6 @@ const Container = styled.div`
 						}
 					}
 				}
-			}
-
-			::after {
-				display: block;
-				content: "";
-				clear: both;
 			}
 		}
 		
