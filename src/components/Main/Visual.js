@@ -6,24 +6,39 @@ const Container = styled.div`
 	position: relative;
 	margin: 0;
 	padding: 0;
+
+	.__1280 {
+		width: 1280px;
+		margin: 0 auto;
+	}
 `
 
 const TextContainer = styled.div`
 	width: 1280px;
 	max-width: 100%;
-	font-size: 3rem;
 	position: relative;
-	
-	margin-top: 30rem;
-	margin-left: 3rem;
+
+	margin-top: 18rem;
+
+	strong {
+		font-size: 3.5rem;
+	}
 `
 
 const Visual = () => {
 	return (
 		<Container>
-			<TextContainer>
-				<strong>DAEJEON Bio Medical</strong>
-			</TextContainer>
+			<div className={"__1280"}>
+				<TextContainer>
+					<strong>DAEJEON Bio Medical</strong>
+					<br/>
+					<span>
+						Daejeon Regulation Free Special Zone
+						<br/>
+						for Bio medical industry
+					</span>
+				</TextContainer>
+			</div>
 		</Container>
 	)
 };
