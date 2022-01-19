@@ -2,6 +2,7 @@ import styled from "styled-components"
 import logo from "../../images/logo_bg.png"
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import Utils from "./Utils";
 
 const Container = styled.div`
 	width: 100vw;
@@ -13,7 +14,7 @@ const Container = styled.div`
 	box-sizing: border-box;
 	background-color: white;
 
-	.inner {
+	.container_1280 {
 		width: 1280px;
 		margin: 0 auto;
 		position: relative;
@@ -72,7 +73,7 @@ const Container = styled.div`
 				}
 			}
 		}
-		
+
 		::before {
 			content: "";
 			position: absolute;
@@ -85,7 +86,7 @@ const Container = styled.div`
 			opacity: 90%;
 			background-color: #f7f8fa;
 		}
-		
+
 		&.active::before {
 			height: 20rem;
 		}
@@ -103,64 +104,6 @@ const Container = styled.div`
 	}
 `
 
-const Utils = styled.div`
-	position: absolute;
-	right: 0;
-	padding-right: inherit;
-	box-sizing: border-box;
-	line-height: 1rem;
-	text-decoration: none;
-	font-weight: bold;
-
-	li {
-		list-style: none;
-	}
-
-	.site_map {
-		text-decoration: none;
-		display: inline-block;
-
-		a {
-			text-decoration: none;
-			color: #515151;
-		}
-	}
-
-	.lang {
-		::before {
-			content: "";
-			position: absolute;
-
-			background-color: #707070;
-			width: 1px;
-			height: 1rem;
-			opacity: 50%;
-		}
-
-		margin-left: 1rem;
-		display: inline-block;
-
-		ul {
-			padding: 0;
-		}
-
-		li {
-			display: inline-block;
-		}
-
-		a {
-			cursor: pointer;
-			text-decoration: none;
-			color: #BFBFBF;
-			margin-left: 1rem;
-		}
-
-		li.active a {
-			color: #B70023;
-		}
-	}
-`;
-
 const Header = () => {
 	const [isHover, setIsHover] = useState(false);
 	const [isKor, setIsKor] = useState(true);
@@ -168,33 +111,17 @@ const Header = () => {
 	return (
 		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}
 			className={isHover ? "active" : ""}>
-			<Utils>
-				<ul>
-					<li className={"site_map"}>
-						<Link to={"/menu"}>SITE MAP</Link>
-					</li>
-					<li className={"lang"}>
-						<ul>
-							<li className={isKor ? "active" : ""}>
-								<Link to={"/menu"} onClick={() => setIsKor(true)}>KOR</Link>
-							</li>
-							<li className={isKor ? "" : "active"}>
-								<Link to={"/eng"} onClick={() => setIsKor(false)}>ENG</Link>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</Utils>
-			<div className={`inner ${isHover ? "active" : ""}`}>
+			<div className={`container_1280 ${isHover ? "active" : ""}`}>
+				<Utils isKor={isKor} setIsKor={setIsKor}/>
 				<div className={"logo"}>
-					<a href={"/"}>
+					<Link to={"/"}>
 						<img src={logo} alt={"biomedical"}/>
-					</a>
+					</Link>
 				</div>
 				<nav>
 					<ul id={"gnb"}>
 						<li>
-							<a href={"/menu"}>규제자유특구소개</a>
+							<Link to={"/menu"}>규제자유특구소개</Link>
 							<ul className={"depth2"}>
 								<li><a href={"/menu"}>규제자유특구란?</a></li>
 								<li><a href={"/menu"}>바이오메디컬 규제자유특구</a></li>
