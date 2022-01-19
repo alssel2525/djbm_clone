@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {BiSearchAlt} from "react-icons/bi";
 import {useEffect, useRef, useState} from "react";
+import visual from "../../images/visual.jpg"
 
 const Container = styled.div`
 	height: 100vh;
@@ -73,7 +74,9 @@ const Visual = () => {
 
 	return (
 		<Container>
-			<div style={{background: "black", width: "100vw", height: "100vh", left: left, position: "absolute"}}/>
+			<div style={{backgroundImage: `url(${visual})`, backgroundSize: "cover",
+				width: `calc(100vw - ${left}px)`, height: "100vh", left: left,
+				position: "absolute", overflow: "hidden"}}/>
 			<div className={"__1280"}>
 				<TextContainer>
 					<strong>{`DAEJEON Bio `}</strong>
