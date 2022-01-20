@@ -19,20 +19,42 @@ const Slide = styled.div`
 	border: 1px #d4d4d4 solid;
 	display: flex;
 	flex-direction: column;
-	
 	margin-left: 2rem;
+
+	.date {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+
+	.title {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	.content {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
 `
 
 const Slider = (carouselIndex) => {
-	return (
-		<Container>
-			{News.map((news, index) => (
-				<Slide key={index}>
-					{news.date[1]}
-				</Slide>
-			))}
-		</Container>
-	)
+	return (<Container>
+		{News.map((news, index) => (
+			<Slide key={index}>
+				<div className={"date"}>{news.date[1]}</div>
+				<div className={"date"}>{news.date[0]}</div>
+				<div className={"title"}>{news.title}</div>
+				<div className={"content"}>{news.content}</div>
+			</Slide>
+		))}
+	</Container>)
 };
 
 export default Slider;
