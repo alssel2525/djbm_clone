@@ -3,7 +3,7 @@ import logo from "../../images/logo_bg.png"
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import Utils from "./Utils";
-import {menus} from "../../Data";
+import {Menus} from "../../Data";
 
 const Container = styled.div`
 	width: 100vw;
@@ -125,7 +125,7 @@ const Header = () => {
 				</div>
 				<Gnb isHover={isHover}>
 					<ul id={"gnb"}>
-						{menus.map((menu, index) => (
+						{Menus.map((menu, index) => (
 							<li key={index}>
 								<Link to={"/"}>{menu.depth1}</Link>
 								<ul className={"depth2"}>

@@ -1,4 +1,4 @@
-export const menus = [
+export const Menus = [
 	{
 		depth1: "규제자유특구소개",
 		depth2: [
