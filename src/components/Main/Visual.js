@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {BiSearchAlt} from "react-icons/bi";
 import {useEffect, useRef, useState} from "react";
 import visual from "../../images/visual.jpg"
+import ButtonWithIcon from "./ButtonWithIcon";
 
 const Container = styled.div`
 	height: 100vh;
@@ -35,31 +36,6 @@ const TextContainer = styled.div`
 	}
 `
 
-const ButtonWithImage = styled.a`
-	width: 17rem;
-	height: 4.5rem;
-	padding: 1rem;
-	border-radius: 5px;
-	background: linear-gradient(135deg, #303f9f 0%, #4a148c 100%);
-	color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-
-	.icon {
-		width: 2rem;
-		height: 2rem;
-	}
-
-	.text {
-		margin-left: 1rem;
-		font-weight: bold;
-		font-size: 1.2rem;
-		line-height: calc(1.2rem * 1.8);
-	}
-`
-
 const Visual = () => {
 	const ref = useRef(null);
 	const [left, setLeft] = useState(0);
@@ -88,14 +64,7 @@ const Visual = () => {
 						for Bio medical industry
 					</span>
 				</TextContainer>
-				<ButtonWithImage style={{marginTop: "1.5rem"}}>
-					<BiSearchAlt className={"icon"}/>
-					<span className={"text"}>
-						검체분양 총괄시스템
-						<br/>
-						바로가기  >
-					</span>
-				</ButtonWithImage>
+				<ButtonWithIcon/>
 			</div>
 		</Container>
 	)
