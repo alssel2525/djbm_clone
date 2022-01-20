@@ -130,7 +130,7 @@ const Header = () => {
 								<Link to={"/"}>{menu.depth1}</Link>
 								<ul className={"depth2"}>
 									{menu.depth2.map((depth2item, index) => (
-										<li key={index}><Link to={"/"}/>{depth2item}</li>
+										<li key={index}><Link to={"/"}>{depth2item}</Link></li>
 									))}
 								</ul>
 							</li>
