@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import logo from "../../images/logo_bg.png"
 import {useState} from "react";
 import {Link} from "react-router-dom";
@@ -21,111 +21,34 @@ const Container = styled.div`
 		position: relative;
 
 		.logo {
-			float: left;
 			position: absolute;
 			transition: all 0.3s;
-		}
-
-		nav {
-			position: relative;
-			float: right;
-			margin-top: 5rem;
-
-			#gnb {
-				transition: all 0.3s;
-				display: block;
-				list-style: none;
-
-				> li {
-					float: left;
-					margin-left: 6rem;
-					position: relative;
-
-					> a {
-						color: black;
-						text-transform: uppercase;
-						margin-bottom: 2rem;
-						font-weight: bold;
-						text-decoration: none;
-						font-size: 1.2rem;
-					}
-
-					.depth2 {
-						position: absolute;
-						top: 5rem;
-						left: 0;
-						width: 100%;
-						display: none;
-						white-space: nowrap;
-						padding: 0;
-
-						> li {
-							margin: 0 0 1rem;
-							list-style: none;
-
-							> a {
-								position: relative;
-								padding: 5px 0;
-								text-decoration: none;
-								color: #555555;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		::before {
-			content: "";
-			position: absolute;
-			width: 100vw;
-			height: 0;
-			left: 0;
-			margin-left: calc(-50vw + 50%);
-			margin-top: 8.5rem;
-			transition: all 0.3s;
-			opacity: 90%;
-			background-color: #f7f8fa;
-		}
-
-		&.active::before {
-			height: 20rem;
-		}
-	}
-
-
-	&.active {
-		::before {
-			height: 260px;
-		}
-
-		nav #gnb > li .depth2 {
-			display: block;
 		}
 	}
 `
 
 const Gnb = styled.nav`
-	position: relative;
 	float: right;
-	margin-top: 5rem;
+	margin: 5rem auto 0;
 	list-style: none;
-
+	box-sizing: border-box;
 
 	#gnb {
 		transition: all 0.3s;
 		display: block;
 		list-style: none;
+		margin: 0;
+		padding: 0;
 
 		> li {
-			float: left;
 			margin-left: 6rem;
 			position: relative;
+			display: inline-block;
+			margin-bottom: 2rem;
 
 			> a {
 				color: black;
 				text-transform: uppercase;
-				margin-bottom: 2rem;
 				font-weight: bold;
 				text-decoration: none;
 				font-size: 1.2rem;
@@ -133,7 +56,7 @@ const Gnb = styled.nav`
 
 			.depth2 {
 				position: absolute;
-				top: 5rem;
+				top: 6rem;
 				left: 0;
 				width: 100%;
 				display: none;
@@ -154,7 +77,37 @@ const Gnb = styled.nav`
 			}
 		}
 	}
-`
+
+	::after {
+		position: absolute;
+		content: "";
+		width: 100vw;
+		height: 0;
+		left: 0;
+		margin-left: calc(-50vw + 50%);
+		transition: all 0.3s;
+		opacity: 90%;
+		background-color: #f7f8fa;
+		z-index: -1;
+	}
+
+	${props => props.isHover && css`
+		#gnb {
+			> li {
+				.depth2 {
+					display: inline;
+					padding: 0;
+					padding-inline: 0;
+				}
+			}
+		}
+
+		::after {
+			height: 20rem;
+		}
+	`
+	}
+`;
 
 const Header = () => {
 	const [isHover, setIsHover] = useState(false);
@@ -170,7 +123,7 @@ const Header = () => {
 						<img src={logo} alt={"biomedical"}/>
 					</Link>
 				</div>
-				<Gnb>
+				<Gnb isHover={isHover}>
 					<ul id={"gnb"}>
 						{menus.map((menu, index) => (
 							<li key={index}>
