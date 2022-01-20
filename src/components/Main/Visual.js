@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from "react";
 import visual from "../../images/visual.jpg"
 import ButtonWithIcon from "./ButtonWithIcon";
 import {BsArrowLeftCircle, BsArrowRightCircle} from "react-icons/bs";
+import Slider from "./Slider";
 
 const Container = styled.div`
 	height: 100vh;
@@ -37,7 +38,7 @@ const TextContainer = styled.div`
 
 const Arrow = styled.div`
 	position: absolute;
-	top: 20rem;
+	top: 0;
 	right: 0;
 	color: white;
 
@@ -47,12 +48,19 @@ const Arrow = styled.div`
 		height: 5rem;
 		right: 0;
 		top: 0;
+		cursor: pointer;
+		border-radius: 50%;
+
+		&:hover {
+			color: #b71c1c;
+		}
 	}
 `
 
 const Visual = () => {
 	const ref = useRef(null);
 	const [left, setLeft] = useState(0);
+	const [carouselIndex, setCarouselIndex] = useState(0);
 
 	useEffect(() => {
 		setLeft(ref.current.getBoundingClientRect().x);
@@ -82,10 +90,11 @@ const Visual = () => {
 				</TextContainer>
 				<ButtonWithIcon/>
 				<Arrow>
-					<BsArrowRightCircle/>
-					<BsArrowLeftCircle style={{top: "7rem"}}/>
+					<BsArrowRightCircle onClick={() => setCarouselIndex(prev => prev + 1)}/>
+					<BsArrowLeftCircle onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "7rem"}}/>
 				</Arrow>
 			</div>
+			<Slider carouselIndex={carouselIndex}/>
 		</Container>
 	)
 };
