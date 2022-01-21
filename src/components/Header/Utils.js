@@ -33,7 +33,7 @@ const Language = styled.ul`
 
 	::before {
 		content: "";
-		position: fixed;
+		position: absolute;
 		background-color: ${Color.grey};
 		width: 1px;
 		height: 1rem;
