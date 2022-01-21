@@ -89,3 +89,21 @@ export const News = [
 		content: "코로나19 팬데믹으로 국내외 경제가 위기상황인 가운데 지난해 11월 지정된‘대전 바이오메디컬 규제자유특구’가 본격",
 	},
 ]
+
+export const MainContentSection1Cards = [
+	{
+		id: 1,
+		title: "인체유래물은행 공동운영 실증",
+		background: "https://www.djbm.or.kr/main/images/korean/main/main_01.jpg",
+	},
+	{
+		id: 2,
+		title: "체외진단기기의 신의료기술 평가유예 절차 간소화 실증",
+		background: "https://www.djbm.or.kr/main/images/korean/main/main_02.jpg",
+	},
+	{
+		id: 3,
+		title: "병원체자원 공용연구시설을 활용한 치료제 조기 상용화 실증",
+		background: "https://www.djbm.or.kr/main/images/korean/main/main_03.jpg",
+	},
+];
