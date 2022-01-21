@@ -63,17 +63,19 @@ const Slider = ({carouselIndex}) => {
 	const array = Array.from(News);
 
 	const sortFn = (a, b) => {
-		return ((News.indexOf(a) + carouselIndex) % News.length) - ((News.indexOf(b) + carouselIndex) % News.length);
+		if (carouselIndex >= 0 ) {
+			return ((a.id + carouselIndex) % News.length) - ((b.id + carouselIndex) % News.length);
+		}
+		else return ((a.id - (-carouselIndex % News.length) + News.length) % News.length) - ((b.id - (-carouselIndex % News.length) + News.length) % News.length);
 	}
 
 	const pickColor = (color1, color2, weight) => {
 		const w1 = 1 - weight;
 		const w2 = weight;
-		const rgb = [Math.round(color1[0] * w1 + color2[0] * w2),
+		// return rgb
+		return [Math.round(color1[0] * w1 + color2[0] * w2),
 			Math.round(color1[1] * w1 + color2[1] * w2),
-			Math.round(color1[2] * w1 + color2[2] * w2),];
-		console.log(rgb);
-		return rgb
+			Math.round(color1[2] * w1 + color2[2] * w2),]
 	}
 
 	return (<Container>
