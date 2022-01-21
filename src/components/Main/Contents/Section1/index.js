@@ -22,7 +22,6 @@ const Title = styled.div`
 	color: ${Color.black};
 	font-weight: bold;
 	text-align: center;
-	margin-bottom: 1rem;
 `
 
 const Section1 = () => {
