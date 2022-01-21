@@ -1,3 +1,3 @@
 # djbm 클론 코딩
 
-React를 활용한 djbm 클론코딩 프로젝트입니다.
+React를 사용한 djbm(대전 바이오메디컬 규제자유특구, [#](https://www.djbm.or.kr/)) 클론코딩 프로젝트입니다.
