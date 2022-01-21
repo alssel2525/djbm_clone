@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {BiSearchAlt} from "react-icons/bi";
+import Color from "../../Color";
 
 const Container = styled.a`
 	width: 17rem;
@@ -7,8 +8,8 @@ const Container = styled.a`
 	margin-top: 1.5rem;
 	padding: 1rem;
 	border-radius: 5px;
-	background: linear-gradient(135deg, #303f9f 0%, #4a148c 100%);
-	color: white;
+	background: ${Color.gradient};
+	color: ${Color.white};
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import Color from "../../Color";
+import color from "../../Color";
 
 const Container = styled.div`
 	position: absolute;
@@ -18,7 +20,7 @@ const Container = styled.div`
 
 		a {
 			text-decoration: none;
-			color: #515151;
+			color: ${Color.black};
 		}
 	}
 `;
@@ -32,7 +34,7 @@ const Language = styled.ul`
 	::before {
 		content: "";
 		position: fixed;
-		background-color: #707070;
+		background-color: ${Color.grey};
 		width: 1px;
 		height: 1rem;
 	}
@@ -45,12 +47,12 @@ const Language = styled.ul`
 	a {
 		cursor: pointer;
 		text-decoration: none;
-		color: #bdbdbd;
+		color: ${color.lightgrey};
 		margin-left: 1rem;
 	}
 
 	li.active a {
-		color: #b71c1c;
+		color: ${Color.red};
 	}
 `
 

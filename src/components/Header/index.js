@@ -4,6 +4,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import Utils from "./Utils";
 import {Menus} from "../../Data";
+import Color from "../../Color";
 
 const Container = styled.div`
 	width: 100vw;
@@ -13,7 +14,7 @@ const Container = styled.div`
 	z-index: 99;
 	padding: 0 calc((100vw - (1280px)) / 2);
 	box-sizing: border-box;
-	background-color: white;
+	background-color: ${Color.white};
 
 	.container_1280 {
 		width: 1280px;
@@ -47,7 +48,7 @@ const Gnb = styled.nav`
 			margin-bottom: 2rem;
 
 			> a {
-				color: black;
+				color: ${Color.black};
 				text-transform: uppercase;
 				font-weight: bold;
 				text-decoration: none;
@@ -71,7 +72,7 @@ const Gnb = styled.nav`
 						position: relative;
 						padding: 5px 0;
 						text-decoration: none;
-						color: #555555;
+						color: ${Color.black};
 					}
 				}
 			}

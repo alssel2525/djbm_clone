@@ -4,6 +4,7 @@ import visual from "../../images/visual.jpg"
 import ButtonWithIcon from "./ButtonWithIcon";
 import {BsArrowLeftCircle, BsArrowRightCircle} from "react-icons/bs";
 import Slider from "./Slider";
+import Color from "../../Color";
 
 const Container = styled.div`
 	height: 100vh;
@@ -28,10 +29,10 @@ const TextContainer = styled.div`
 	height: auto;
 	position: relative;
 	margin-top: 20rem;
-	color: #777777;
+	color: ${Color.grey};
 
 	strong {
-		color: #444444;
+		color: ${Color.black};
 		font-size: 3.5rem;
 	}
 `
@@ -40,7 +41,7 @@ const Arrow = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-	color: white;
+	color: ${Color.white};
 
 	svg {
 		position: absolute;
@@ -52,7 +53,7 @@ const Arrow = styled.div`
 		border-radius: 50%;
 
 		&:hover {
-			color: #b71c1c;
+			color: ${Color.red};
 		}
 	}
 `

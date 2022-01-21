@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {News} from "../../Data";
+import Color from "../../Color";
 
 const Container = styled.div`
 	position: absolute;
@@ -19,9 +20,9 @@ const Slide = styled.div`
 	flex-direction: column;
 	box-sizing: border-box;
 	border-radius: 5px;
-	border: 1px #d4d4d4 solid;
-	background-color: #ffffff;
-	color: #000000;
+	border: 1px ${Color.lightgrey} solid;
+	background-color: ${Color.white};
+	color: ${Color.black};
 
 	.day {
 		text-align: right;
@@ -32,7 +33,7 @@ const Slide = styled.div`
 	.yearMonth {
 		text-align: right;
 		font-size: 1rem;
-		color: #878787;
+		color: ${Color.grey};
 	}
 
 	.title {
@@ -55,7 +56,7 @@ const Slide = styled.div`
 
 		margin-top: 0.5rem;
 
-		color: #878787;
+		color: ${Color.grey};
 	}
 `
 
