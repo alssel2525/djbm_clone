@@ -63,25 +63,15 @@ const Slider = ({carouselIndex}) => {
 	const array = Array.from(News);
 
 	const sortFn = (a, b) => {
-		if (carouselIndex >= 0 ) {
+		if (carouselIndex >= 0) {
 			return ((a.id + carouselIndex) % News.length) - ((b.id + carouselIndex) % News.length);
 		}
 		else return ((a.id - (-carouselIndex % News.length) + News.length) % News.length) - ((b.id - (-carouselIndex % News.length) + News.length) % News.length);
 	}
 
-	const pickColor = (color1, color2, weight) => {
-		const w1 = 1 - weight;
-		const w2 = weight;
-		// return rgb
-		return [Math.round(color1[0] * w1 + color2[0] * w2),
-			Math.round(color1[1] * w1 + color2[1] * w2),
-			Math.round(color1[2] * w1 + color2[2] * w2),]
-	}
-
 	return (<Container>
 		{array.sort(sortFn).map((news, index) => (
-			<Slide key={index}
-				style={{backgroundColor: `rgb(${pickColor([183, 28, 28], [48, 63, 159], News.indexOf(news) / News.length).join(",")})`}}>
+			<Slide key={index}>
 				<div className={"day"}>{news.date[1]}</div>
 				<div className={"yearMonth"}>{news.date[0]}</div>
 				<div className={"title"}>{news.title}</div>
