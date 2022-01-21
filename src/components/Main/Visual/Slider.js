@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {News} from "../../Data";
-import Color from "../../Color";
+import {News} from "../../../Data";
+import Color from "../../../Color";
 
 const Container = styled.div`
 	position: absolute;

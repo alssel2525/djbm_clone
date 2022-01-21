@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {BiSearchAlt} from "react-icons/bi";
-import Color from "../../Color";
+import Color from "../../../Color";
 
 const Container = styled.a`
 	width: 17rem;

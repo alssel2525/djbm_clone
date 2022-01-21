@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import {useEffect, useRef, useState} from "react";
-import visual from "../../images/visual.jpg"
+import visual from "../../../images/visual.jpg"
 import ButtonWithIcon from "./ButtonWithIcon";
 import {BsArrowLeftCircle, BsArrowRightCircle} from "react-icons/bs";
 import Slider from "./Slider";
-import Color from "../../Color";
+import Color from "../../../Color";
 
 const Container = styled.div`
 	height: 100vh;
