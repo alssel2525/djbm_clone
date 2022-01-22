@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BoxVideo from "./BoxVideo";
+import BoxQna from "./BoxQna";
 
 const Container = styled.div`
     width: 100vw;
@@ -8,6 +9,7 @@ const Container = styled.div`
 	.__1280 {
 		width: 1280px;
 		margin: 0 auto;
+		padding-bottom: 3rem;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -18,6 +20,7 @@ const Section3 = () => {
 		<Container>
 			<div className={"__1280"}>
 				<BoxVideo/>
+				<BoxQna/>
 			</div>
 		</Container>
 	)
