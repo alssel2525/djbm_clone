@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import QuickMenuIcons from "./QuickMenuIcons";
+import Color from "../../../../Color";
 
 const Container = styled.div`
 	width: 100%;
@@ -13,6 +14,12 @@ const Container = styled.div`
 		flex-direction: row;
 		justify-content: space-between;
 	}
+	
+	strong {
+		font-size: 2rem;
+	}
+	
+	color: ${Color.black};
 `;
 
 const Section2 = () => {
@@ -20,7 +27,7 @@ const Section2 = () => {
 		<Container>
 			<div className={"__1280"}>
 				<div>
-					<strong>Quick Menu</strong><br/>
+					<strong>Quick Menu</strong><br/><br/>
 					대전 바이오메디컬<br/>
 					규제자유특구 빠른 메뉴 서비스
 				</div>
