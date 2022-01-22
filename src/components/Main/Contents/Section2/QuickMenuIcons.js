@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {MenuData_MainContentsSection2} from "../../../../Data";
+import Color from "../../../../Color";
 
 const Container = styled.div`
 	width: 70%;
@@ -10,26 +11,39 @@ const Container = styled.div`
 	align-items: center;
 `;
 
+const Text = styled.div`
+	height: 3rem;
+	margin-top: 1rem;
+	text-align: center;
+	word-break: keep-all;
+	color: black;
+	font-weight: bold;
+`
+
 const QuickMenu = styled.div`
-	width: 80%;
+	width: calc(1280px * 0.7 / 7 * 0.8);
 	height: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
+	cursor: pointer;
+
 	svg {
+		color: ${Color.lightgrey};
 		width: 3rem;
 		height: 3rem;
+		transition-duration: 0.2s;
 	}
-`
 
-const Text = styled.div`
-	height: 3rem;
-	margin-top: 1rem;
-	text-align: center;
-	word-break: keep-all;
+	&:hover svg {
+		color: ${Color.red};
+	}
+	
+	&:hover ${Text} {
+		text-decoration: underline;
+	}
 `
 
 
