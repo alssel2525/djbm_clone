@@ -4,7 +4,6 @@ import Color from "../../Color";
 const Container = styled.div`
 	position: absolute;
 	right: 0;
-	top: -1rem;
 
 	fieldset {
 		width: 100%;

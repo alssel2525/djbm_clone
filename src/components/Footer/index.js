@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Color from "../../Color";
 import logo from "../../images/footlogo.png";
 import Sites from "./Sites";
+import Informations from "./Informations";
 
 const Container = styled.div`
 	height: 10rem;
@@ -12,16 +13,18 @@ const Container = styled.div`
 	box-sizing: border-box;
 
 	.__1280 {
-		position: relative;
 		width: 1280px;
-		padding: 0.1px;
+		position: relative;
+		display: flex;
 		margin: auto;
+		padding: 0;
+		justify-content: space-between;
+		box-sizing: border-box;
 	}
 `;
 
 const Logo = styled.div`
-	display: block;
-	vertical-align: middle;
+	position: relative;
 	float: left;
 `
 
@@ -30,7 +33,8 @@ const Footer = () => {
 		<Container>
 			<div className={"__1280"}>
 				<Logo><img src={logo} alt={"logo"}/></Logo>
-				<Sites action method={"post"}> </Sites>
+				<Informations/>
+				<Sites/>
 			</div>
 		</Container>
 	)
