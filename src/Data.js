@@ -1,3 +1,8 @@
+import {AiOutlineBarChart, AiOutlinePieChart, AiOutlineStock} from "react-icons/ai";
+import {ImNewspaper} from "react-icons/im";
+import {GiGears, GiOrganigram} from "react-icons/gi";
+import {MdOutlineLocationOn} from "react-icons/md";
+
 export const Menus = [
 	{
 		depth1: "규제자유특구소개",
@@ -105,5 +110,43 @@ export const MainContentSection1Cards = [
 		id: 3,
 		title: "병원체자원 공용연구시설을 활용한 치료제 조기 상용화 실증",
 		background: "https://www.djbm.or.kr/main/images/korean/main/main_03.jpg",
+	},
+];
+
+export const MenuData_MainContentsSection2 = [
+	{
+		id: 0,
+		content: "규제타유특구 소개",
+		icon: AiOutlinePieChart,
+	},
+	{
+		id: 1,
+		content: "바이오메디컬 규제자유특구소개",
+		icon: ImNewspaper,
+	},
+	{
+		id: 2,
+		content: "특구사업자 소개",
+		icon: AiOutlineBarChart,
+	},
+	{
+		id: 3,
+		content: "주요성과",
+		icon: AiOutlineStock,
+	},
+	{
+		id: 4,
+		content: "검체분양 총괄시스템",
+		icon: GiGears,
+	},
+	{
+		id: 5,
+		content: "조직도",
+		icon: GiOrganigram,
+	},
+	{
+		id: 6,
+		content: "오시는길",
+		icon: MdOutlineLocationOn,
 	},
 ];
