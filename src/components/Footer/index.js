@@ -5,9 +5,8 @@ import Sites from "./Sites";
 import Informations from "./Informations";
 
 const Container = styled.div`
-	height: 10rem;
 	position: relative;
-	padding: 2.5rem;
+	padding: 2rem 0 4rem;
 	background: ${Color.black};
 	color: ${Color.lightgrey};
 	box-sizing: border-box;
