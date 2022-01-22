@@ -1,7 +1,8 @@
-import Header from "./components/Header";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Main from "./routes/Main";
 import styled from "styled-components";
+import Header from "./components/Header";
+import Main from "./routes/Main";
+import Footer from "./components/Footer";
 
 const AppContainer = styled.div`
 	width: 100vw;
@@ -19,6 +20,7 @@ function App() {
 				<Routes>
 					<Route path={"/"} element={<Main/>}/>
 				</Routes>
+				<Footer/>
 			</AppContainer>
 		</BrowserRouter>
 	);
