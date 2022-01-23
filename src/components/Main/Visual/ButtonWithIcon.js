@@ -28,9 +28,13 @@ const Container = styled.a`
 	}
 `
 
-const ButtonWithIcon = () => {
+const ButtonWithIcon = ({link}) => {
+	const openLink = (link) => {
+		if (link) window.open(link);
+	}
+	
 	return (
-		<Container>
+		<Container onClick={() => openLink(link)}>
 			<BiSearchAlt className={"icon"}/>
 			<span className={"text"}>
 				검체분양 총괄시스템

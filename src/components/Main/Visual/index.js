@@ -89,7 +89,7 @@ const Visual = () => {
 						for Bio medical industry
 					</span>
 				</TextContainer>
-				<ButtonWithIcon/>
+				<ButtonWithIcon link={"https://portal.djbm.or.kr:8443/djbm/"}/>
 				<Arrow>
 					<BsArrowRightCircle onClick={() => setCarouselIndex(prev => prev + 1)}/>
 					<BsArrowLeftCircle onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "7rem"}}/>
