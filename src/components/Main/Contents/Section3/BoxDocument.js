@@ -43,34 +43,34 @@ const Document = styled.div`
 	}
 
 	.text {
+		height: 100%;
 		margin-left: 1rem;
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		box-sizing: border-box;
-		
-		text-overflow: ellipsis;
-		white-space: nowrap;
 		overflow: hidden;
 		
+		.line {
+			margin-bottom: 1rem;
+			width: 2rem;
+			height: 5px;
+			background: ${Color.red};
+		}
+		
 		a {
-			width: 100%;
-			box-sizing: border-box;
-			
-			
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+
+			font-size: 1.1rem;
 			text-decoration: none;
 			font-weight: bold;
 			color: #3b3b3b;
 		}
 
-		::before {
-			position: absolute;
-			top: -1rem;
-			width: 2rem;
-			height: 5px;
-			background: ${Color.red};
-			content: '';
-		}
-
-		div {
+		.date {
 			margin-top: 0.5rem;
 			color: ${Color.grey};
 			font-weight: normal;
@@ -99,8 +99,9 @@ const BoxDocument = () => {
 			<Document>
 				<div className={"image"}><img src={thumbnail} alt={"대전인체유래물은행 분양안내 리플렛"}/></div>
 				<div className={"text"}>
+					<div className={"line"}/>
 					<Link to={"/"}>대전인체유래물은행 분양안내 리플렛</Link>
-					<div>2020. 11. 25</div>
+					<div className={"date"}>2020. 11. 25</div>
 				</div>
 			</Document>
 			<Text>홍보자료</Text>
