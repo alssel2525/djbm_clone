@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BoxVideo from "./BoxVideo";
 import BoxQna from "./BoxQna";
+import BoxDocument from "./BoxDocument";
 
 const Container = styled.div`
     width: 100vw;
@@ -21,6 +22,7 @@ const Section3 = () => {
 			<div className={"__1280"}>
 				<BoxVideo/>
 				<BoxQna/>
+				<BoxDocument/>
 			</div>
 		</Container>
 	)
