@@ -6,9 +6,9 @@ import Footer from "./components/Footer";
 
 const AppContainer = styled.div`
 	width: 100vw;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 	position: relative;
 `
 

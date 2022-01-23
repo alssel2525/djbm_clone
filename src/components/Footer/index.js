@@ -5,7 +5,10 @@ import Sites from "./Sites";
 import Informations from "./Informations";
 
 const Container = styled.div`
-	position: relative;
+	position: absolute;
+	bottom: 0;
+	transform: translateY(100%);
+	width: 100vw;
 	padding: 2rem 0 4rem;
 	background: ${Color.black};
 	color: ${Color.lightgrey};
