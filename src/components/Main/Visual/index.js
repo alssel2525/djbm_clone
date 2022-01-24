@@ -62,15 +62,12 @@ const Visual = () => {
 	const ref = useRef(null);
 	const [left, setLeft] = useState(0);
 	const [carouselIndex, setCarouselIndex] = useState(0);
-
+	
 	useEffect(() => {
 		setLeft(ref.current.getBoundingClientRect().x);
-	}, []);
-
-	useEffect(() => {
 		window.addEventListener("resize", () => setLeft(ref.current.getBoundingClientRect().x));
 	}, []);
-
+	
 	return (
 		<Container>
 			<div style={{

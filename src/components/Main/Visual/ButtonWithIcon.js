@@ -30,7 +30,7 @@ const Container = styled.a`
 
 const ButtonWithIcon = ({link}) => {
 	const openLink = (link) => {
-		if (link) window.open(link);
+		if (link && link !== "") window.open(link);
 	}
 	
 	return (
