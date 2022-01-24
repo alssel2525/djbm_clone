@@ -7,6 +7,7 @@ const Container = styled.div`
 	height: 300px;
 	cursor: pointer;
 	position: relative;
+	overflow: hidden;
 `;
 
 const Image = styled.div`
@@ -32,29 +33,34 @@ const Image = styled.div`
 	}
 
 	&.active {
-		transform: scaleY(1.05);
+		transform: scale(1.05);
 
 		::before {
-			height: 12.5rem;
+			transform: scale(1.05);
 			opacity: 0.5;
 		}
 	}
 `
 
 const More = styled.div`
-	display: inline-block;
 	width: 140px;
-	height: 42px;
-	border: 2px solid ${Color.white};
-	text-align: center;
-	line-height: 42px;
-	-webkit-transition: all .4s;
-	transition: all .4s;
-	color: ${Color.white};
+	height: 0;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	text-align: center;
+	line-height: 42px;
+	color: ${Color.white};
+	border: 2px solid ${Color.white};
+	transition: all 0.5s;
+	overflow: hidden;
+	visibility: hidden;
+	
+	&.active {
+		visibility: visible;
+		height: 42px;
+	}
 `
 
 const Number = styled.div`
@@ -95,7 +101,7 @@ const Card = ({card}) => {
 	return (
 		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
 			<Image background={card.background} className={isHover ? "active" : ""}>
-				{isHover && <More>자세히 보기</More>}
+				<More className={isHover ? "active" : ""}>자세히 보기</More>
 			</Image>
 			<Number className={isHover ? "active" : ""}>0{card.id}</Number>
 			<Title className={isHover ? "active" : ""}>{card.title}</Title>
