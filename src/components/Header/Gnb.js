@@ -48,12 +48,18 @@ const Container = styled.nav`
 						padding: 5px 0;
 						text-decoration: none;
 						color: ${Color.black};
+						
+						&:hover {
+							font-weight: bold;
+							text-decoration: underline;
+						}
 					}
 				}
 			}
 		}
 	}
 
+	// lnb 배경
 	::after {
 		position: absolute;
 		content: "";
@@ -79,7 +85,7 @@ const Container = styled.nav`
 		}
 
 		::after {
-			height: 20rem;
+			height: 260px;
 		}
 	`
 	}
