@@ -88,7 +88,7 @@ const Title = styled.div`
 	margin-top: 2rem;
 	text-align: left;
 	font-size: 1.2rem;
-	font-weight: bold;
+	font-weight: 700;
 
 	&.active {
 		text-decoration: underline;
