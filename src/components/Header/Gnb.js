@@ -92,7 +92,6 @@ const Container = styled.nav`
 `;
 
 const Gnb = ({isHover}) => {
-	console.log(isHover)
 	return (
 		<Container isHover={isHover}>
 			<ul id={"gnb"}>
