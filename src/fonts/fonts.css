@@ -1,40 +1,59 @@
 /* Noto Sans KR starts */
+/* https://google-webfonts-helper.herokuapp.com/fonts/noto-sans-kr?subsets=korean,latin */
+/* noto-sans-kr-100 - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Thin.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 100;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-100.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-100.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* noto-sans-kr-300 - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Light.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 300;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* noto-sans-kr-regular - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Regular.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 400;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* noto-sans-kr-500 - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Medium.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 500;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* noto-sans-kr-700 - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Bold.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 700;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
+/* noto-sans-kr-900 - latin_korean */
 @font-face {
-	font-family: "Noto Sans KR";
-	src: local("Noto Sans KR");
-	src: url("./Noto Sans KR/NotoSansKR-Black.otf");
+	font-family: 'Noto Sans KR';
+	font-style: normal;
 	font-weight: 900;
+	src: local(''),
+	url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../fonts/Noto Sans KR/noto-sans-kr-v21-latin_korean-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* Noto Sans KR ends */
 
 /* Sora starts */
@@ -44,46 +63,80 @@
 	src: url("./Sora/Sora-Thin.ttf");
 	font-weight: 100;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-ExtraLight.ttf");
 	font-weight: 200;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-Light.ttf");
 	font-weight: 300;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-Regular.ttf");
 	font-weight: 400;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-Medium.ttf");
 	font-weight: 500;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-SemiBold.ttf");
 	font-weight: 600;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-Bold.ttf");
 	font-weight: 700;
 }
+
 @font-face {
 	font-family: "Sora";
 	src: local("Sora");
 	src: url("./Sora/Sora-ExtraBold.ttf");
 	font-weight: 800;
 }
+
 /* Sora ends */
+
+/* Material Icons starts */
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.gstatic.com/s/materialicons/v121/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+	font-family: 'Material Icons', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 48px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Material Icons ends */

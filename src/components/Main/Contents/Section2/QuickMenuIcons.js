@@ -52,10 +52,9 @@ const QuickMenuIcons = () => {
 		<Container>
 			{
 				MenuData_MainContentsSection2.map((menu, index) => {
-					const Icon = MenuData_MainContentsSection2[index].icon;
 					return (
 						<QuickMenu key={index}>
-							<Icon/>
+							<i className={"material-icons"}>pie_chart</i>
 							<Text>{MenuData_MainContentsSection2[index].content}</Text>
 						</QuickMenu>
 					)

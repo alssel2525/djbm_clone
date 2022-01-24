@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {BiSearchAlt} from "react-icons/bi";
 import Color from "../../../Color";
 
 const Container = styled.a`
@@ -16,8 +15,7 @@ const Container = styled.a`
 	cursor: pointer;
 
 	.icon {
-		width: 2rem;
-		height: 2rem;
+		font-size: 48px;
 	}
 
 	.text {
@@ -35,7 +33,7 @@ const ButtonWithIcon = ({link}) => {
 	
 	return (
 		<Container onClick={() => openLink(link)}>
-			<BiSearchAlt className={"icon"}/>
+			<i className={"material-icons md-48"}>manage_search</i>
 			<span className={"text"}>
 				검체분양 총괄시스템
 				<br/>

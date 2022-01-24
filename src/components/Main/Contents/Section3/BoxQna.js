@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import Color from "../../../../Color";
-import {BsQuestionSquare} from "react-icons/bs";
-import {AiOutlineFolderOpen} from "react-icons/ai";
 
 const Container = styled.div`
     width: 400px;
@@ -53,14 +51,14 @@ const BoxQna = () => {
 	return (
 		<Container>
 			<Content>
-				<div className={"icon"}><BsQuestionSquare/></div>
+				<div className={"icon"}><i className={"material-icons"}>help_outline</i></div>
 				<div className={"text"}>
 					<strong>Q&A</strong><br/>
 					대전 바이오메디컬 규제자유특구에 궁금하신 점을 물어보세요
 				</div>
 			</Content>
 			<Content>
-				<div className={"icon"}><AiOutlineFolderOpen/></div>
+				<div className={"icon"}><i className={"material-icons"}>folder_copy</i></div>
 				<div className={"text"}>
 					<strong>자료실</strong><br/>
 					대전 바이오메디컬 규제자유특구의 자료게시판 입니다

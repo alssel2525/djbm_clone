@@ -1,8 +1,3 @@
-import {AiOutlineBarChart, AiOutlinePieChart, AiOutlineStock} from "react-icons/ai";
-import {ImNewspaper} from "react-icons/im";
-import {GiGears, GiOrganigram} from "react-icons/gi";
-import {MdOutlineLocationOn} from "react-icons/md";
-
 export const Menus = [
 	{
 		depth1: "규제자유특구소개",
@@ -117,36 +112,36 @@ export const MenuData_MainContentsSection2 = [
 	{
 		id: 0,
 		content: "규제타유특구 소개",
-		icon: AiOutlinePieChart,
+		icon: "pie_chart_outline",
 	},
 	{
 		id: 1,
 		content: "바이오메디컬 규제자유특구소개",
-		icon: ImNewspaper,
+		icon: "feed",
 	},
 	{
 		id: 2,
 		content: "특구사업자 소개",
-		icon: AiOutlineBarChart,
+		icon: "stacked_bar_chart",
 	},
 	{
 		id: 3,
 		content: "주요성과",
-		icon: AiOutlineStock,
+		icon: "insights",
 	},
 	{
 		id: 4,
 		content: "검체분양 총괄시스템",
-		icon: GiGears,
+		icon: "settings",
 	},
 	{
 		id: 5,
 		content: "조직도",
-		icon: GiOrganigram,
+		icon: "groups",
 	},
 	{
 		id: 6,
 		content: "오시는길",
-		icon: MdOutlineLocationOn,
+		icon: "location_on",
 	},
 ];

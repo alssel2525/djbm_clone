@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import {useEffect, useRef, useState} from "react";
-import visual from "../../../images/visual.jpg"
+import visual from "../../../images/visual.webp"
 import ButtonWithIcon from "./ButtonWithIcon";
-import {BsArrowLeftCircle, BsArrowRightCircle} from "react-icons/bs";
 import Slider from "./Slider";
 import Color from "../../../Color";
 
@@ -43,7 +42,7 @@ const Arrow = styled.div`
 	right: 0;
 	color: ${Color.white};
 
-	svg {
+	* {
 		position: absolute;
 		width: 5rem;
 		height: 5rem;
@@ -60,12 +59,14 @@ const Arrow = styled.div`
 
 const Visual = () => {
 	const ref = useRef(null);
-	const [left, setLeft] = useState(0);
+	const [left, setLeft] = useState(1000000);
 	const [carouselIndex, setCarouselIndex] = useState(0);
 	
 	useEffect(() => {
-		setLeft(ref.current.getBoundingClientRect().x);
-		window.addEventListener("resize", () => setLeft(ref.current.getBoundingClientRect().x));
+		document.fonts.ready.then(() => {
+			setLeft(ref.current.getBoundingClientRect().left);
+		})
+		window.addEventListener("resize", () => setLeft(ref.current.getBoundingClientRect().left));
 	}, []);
 	
 	return (
@@ -88,8 +89,8 @@ const Visual = () => {
 				</TextContainer>
 				<ButtonWithIcon link={"https://portal.djbm.or.kr:8443/djbm/"}/>
 				<Arrow>
-					<BsArrowRightCircle onClick={() => setCarouselIndex(prev => prev + 1)}/>
-					<BsArrowLeftCircle onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "7rem"}}/>
+					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev + 1)}>arrow_back</i>
+					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "3rem"}}>arrow_forward</i>
 				</Arrow>
 			</div>
 			<Slider carouselIndex={carouselIndex}/>
