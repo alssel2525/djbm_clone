@@ -24,13 +24,14 @@ const Content = styled.div`
 		position: relative;
 		background: ${Color.red};
 		
-		svg {
-			width: 2rem;
-			height: 2rem;
+		i {
+			width: 3rem;
+			height: 3rem;
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			font-size: 3rem;
 			color: ${Color.white};
 		}
 	}

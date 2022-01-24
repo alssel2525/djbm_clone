@@ -30,14 +30,14 @@ const QuickMenu = styled.div`
 	align-items: center;
 	cursor: pointer;
 
-	svg {
+	i {
 		color: ${Color.lightgrey};
 		width: 3rem;
 		height: 3rem;
 		transition-duration: 0.2s;
 	}
 
-	&:hover svg {
+	&:hover i {
 		color: ${Color.red};
 	}
 	
@@ -54,7 +54,7 @@ const QuickMenuIcons = () => {
 				MenuData_MainContentsSection2.map((menu, index) => {
 					return (
 						<QuickMenu key={index}>
-							<i className={"material-icons"}>pie_chart</i>
+							<i className={"material-icons"}>{menu.icon}</i>
 							<Text>{MenuData_MainContentsSection2[index].content}</Text>
 						</QuickMenu>
 					)
