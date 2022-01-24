@@ -1,0 +1,89 @@
+/* Noto Sans KR starts */
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Thin.otf");
+	font-weight: 100;
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Light.otf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Regular.otf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Medium.otf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Bold.otf");
+	font-weight: 700;
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	src: local("Noto Sans KR");
+	src: url("./Noto Sans KR/NotoSansKR-Black.otf");
+	font-weight: 900;
+}
+/* Noto Sans KR ends */
+
+/* Sora starts */
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-Thin.ttf");
+	font-weight: 100;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-ExtraLight.ttf");
+	font-weight: 200;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-Light.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-Regular.ttf");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-Medium.ttf");
+	font-weight: 500;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-SemiBold.ttf");
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-Bold.ttf");
+	font-weight: 700;
+}
+@font-face {
+	font-family: "Sora";
+	src: local("Sora");
+	src: url("./Sora/Sora-ExtraBold.ttf");
+	font-weight: 800;
+}
+/* Sora ends */
