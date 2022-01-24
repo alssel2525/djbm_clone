@@ -73,8 +73,8 @@ const Visual = () => {
 		<Container>
 			<div style={{
 				backgroundImage: `url(${visual})`, backgroundSize: "cover",
-				width: `calc(100vw - ${left}px)`, height: "100vh", left: left,
-				position: "absolute", overflow: "hidden"
+				width: `calc(100vw - ${left}px)`, height: "100vh", right: 0,
+				position: "absolute", overflow: "hidden",
 			}}/>
 			<div className={"__1280"}>
 				<TextContainer>
@@ -90,7 +90,8 @@ const Visual = () => {
 				<ButtonWithIcon link={"https://portal.djbm.or.kr:8443/djbm/"}/>
 				<Arrow>
 					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev + 1)}>arrow_back</i>
-					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "3rem"}}>arrow_forward</i>
+					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev - 1)}
+						style={{top: "3rem"}}>arrow_forward</i>
 				</Arrow>
 			</div>
 			<Slider carouselIndex={carouselIndex}/>
