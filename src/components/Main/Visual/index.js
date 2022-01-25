@@ -42,17 +42,28 @@ const Arrow = styled.div`
 	right: 0;
 	color: ${Color.white};
 
-	* {
+	div {
 		position: absolute;
-		width: 5rem;
-		height: 5rem;
+		width: 4rem;
+		height: 4rem;
 		right: 0;
 		top: 0;
 		cursor: pointer;
 		border-radius: 50%;
+		border: solid ${Color.white} 2px;
+		transition: 0.2s;
 
 		&:hover {
-			color: ${Color.red};
+			border-color: ${Color.red};
+			background: ${Color.red};
+		}
+		
+		i {
+			font-size: 30px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 		}
 	}
 `
@@ -89,9 +100,12 @@ const Visual = () => {
 				</TextContainer>
 				<ButtonWithIcon link={"https://portal.djbm.or.kr:8443/djbm/"}/>
 				<Arrow>
-					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev + 1)}>arrow_back</i>
-					<i className={"material-icons"} onClick={() => setCarouselIndex(prev => prev - 1)}
-						style={{top: "3rem"}}>arrow_forward</i>
+					<div onClick={() => setCarouselIndex(prev => prev + 1)}>
+						<i className={"material-icons"}>arrow_forward</i>
+					</div>
+					<div onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "5rem"}}>
+						<i className={"material-icons"}>arrow_back</i>
+					</div>
 				</Arrow>
 			</div>
 			<Slider carouselIndex={carouselIndex}/>
