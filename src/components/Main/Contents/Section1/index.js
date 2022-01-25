@@ -25,9 +25,9 @@ const Title = styled.div`
 	width: 100%;
 	height: 5rem;
 	position: relative;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	color: ${Color.black};
-	font-weight: bold;
+	font-weight: 900;
 	text-align: center;
 	box-sizing: border-box;
 	
