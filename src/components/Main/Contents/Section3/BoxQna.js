@@ -16,34 +16,58 @@ const Content = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: row;
+	align-items: center;
 	justify-content: space-between;
 	
 	.icon {
 		width: 4rem;
+		min-width: 4rem;
 		height: 4rem;
 		position: relative;
 		background: ${Color.red};
 		
 		i {
-			width: 3rem;
-			height: 3rem;
+			width: 2rem;
+			height: 2rem;
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			font-size: 3rem;
+			font-size: 2rem;
 			color: ${Color.white};
 		}
 	}
 	
 	.text {
-		width: 70%;
+		margin-left: 1rem;
+		margin-right: 3rem;
 		color: ${Color.grey};
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 		
 		strong {
 			color: ${Color.black};
 			font-size: 1rem;
+		}
+	}
+	
+	::after {
+		content: "keyboard_arrow_right";
+		font-family: Material Icons, sans-serif;
+		position: absolute;
+		font-size: 1.5rem;
+		top: 0;
+		right: 0;
+	}
+	
+	:is(:not(:first-child)) {
+		::before {
+			content: "";
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			top: -50%;
+			border-top: 2px dotted ${Color.lightgrey};
+			display: block;
 		}
 	}
 `
