@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import QuickMenuIcons from "./QuickMenuIcons";
 import Color from "../../../../Color";
+import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
 
 const Container = styled.div`
 	width: 100%;
@@ -13,25 +14,33 @@ const Container = styled.div`
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+
+		.title {
+			transition: 1s ease;
+			transform: ${props => props.isVisible === true ? "scale(1)" : "scale(1.3)"};
+			opacity: ${props => props.isVisible === true ? 1 : 0};
+		}
 	}
-	
+
 	strong {
 		font-size: 2rem;
 	}
-	
+
 	color: ${Color.black};
 `;
 
 const Section2 = () => {
+	const [ref, isVisible] = useIntersectionObserver({threshold: 0, root: null, rootMargin: "-300px"});
+	
 	return (
-		<Container>
+		<Container ref={ref} isVisible={isVisible}>
 			<div className={"__1280"}>
-				<div>
+				<div className={"title"}>
 					<strong>Quick Menu</strong><br/><br/>
 					대전 바이오메디컬<br/>
 					규제자유특구 빠른 메뉴 서비스
 				</div>
-				<QuickMenuIcons/>
+				<QuickMenuIcons isVisible={isVisible}/>
 			</div>
 		</Container>
 	)

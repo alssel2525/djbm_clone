@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {MenuData_MainContentsSection2} from "../../../../Data";
 import Color from "../../../../Color";
 
@@ -34,7 +34,10 @@ const QuickMenu = styled.div`
 		color: ${Color.lightgrey};
 		width: 3rem;
 		height: 3rem;
-		transition-duration: 0.2s;
+		opacity: 0;
+		transition: opacity 0.5s 1s, color 0.2s;
+
+		${props => props.isVisible === true && css`opacity: 1`}
 	}
 
 	&:hover i {
@@ -47,13 +50,13 @@ const QuickMenu = styled.div`
 `
 
 
-const QuickMenuIcons = () => {
+const QuickMenuIcons = ({isVisible}) => {
 	return (
 		<Container>
 			{
 				MenuData_MainContentsSection2.map((menu, index) => {
 					return (
-						<QuickMenu key={index}>
+						<QuickMenu key={index} isVisible={isVisible}>
 							<i className={"material-icons"}>{menu.icon}</i>
 							<Text>{MenuData_MainContentsSection2[index].content}</Text>
 						</QuickMenu>
