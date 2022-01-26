@@ -4,6 +4,7 @@ import visual from "../../../images/visual.webp"
 import ButtonWithIcon from "./ButtonWithIcon";
 import Slider from "./Slider";
 import Color from "../../../Color";
+import {News} from "../../../Data";
 
 const Container = styled.div`
 	height: 100vh;
@@ -57,7 +58,7 @@ const Arrow = styled.div`
 			border-color: ${Color.red};
 			background: ${Color.red};
 		}
-		
+
 		i {
 			font-size: 30px;
 			position: absolute;
@@ -72,6 +73,20 @@ const Visual = () => {
 	const ref = useRef(null);
 	const [left, setLeft] = useState(1000000);
 	const [carouselIndex, setCarouselIndex] = useState(0);
+	const [increased, setIncreased] = useState(true);
+	
+	const decreaseCarouselIndex = () => {
+		setCarouselIndex(prev => {
+			if (prev === 0) return News.length - 1;
+			else return prev - 1;
+		});
+		setIncreased(false);
+	};
+	
+	const increaseCarouselIndex = () => {
+		setCarouselIndex(prev => (prev + 1) % News.length);
+		setIncreased(true);
+	};
 	
 	useEffect(() => {
 		document.fonts.ready.then(() => {
@@ -100,15 +115,15 @@ const Visual = () => {
 				</TextContainer>
 				<ButtonWithIcon link={"https://portal.djbm.or.kr:8443/djbm/"}/>
 				<Arrow>
-					<div onClick={() => setCarouselIndex(prev => prev + 1)}>
+					<div onClick={() => increaseCarouselIndex()}>
 						<i className={"material-icons"}>arrow_forward</i>
 					</div>
-					<div onClick={() => setCarouselIndex(prev => prev - 1)} style={{top: "5rem"}}>
+					<div onClick={() => decreaseCarouselIndex()} style={{top: "5rem"}}>
 						<i className={"material-icons"}>arrow_back</i>
 					</div>
 				</Arrow>
 			</div>
-			<Slider carouselIndex={carouselIndex}/>
+			<Slider carouselIndex={carouselIndex} increased={increased}/>
 		</Container>
 	)
 };

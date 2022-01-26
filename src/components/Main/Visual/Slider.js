@@ -1,18 +1,22 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {News} from "../../../Data";
 import Color from "../../../Color";
+import {useEffect, useRef} from "react";
 
 const Container = styled.div`
 	position: absolute;
-	width: 100vw;
+	width: 200vw;
 	height: auto;
 	bottom: 4rem;
+	left: -20rem;
 	overflow: hidden;
 	display: flex;
 `
 
 const Slide = styled.div`
-	width: 20rem;
+	width: 18rem;
+	min-width: 18rem;
+	max-width: 18rem;
 	height: 11rem;
 	margin-left: 2rem;
 	padding: 0.8rem 1.5rem;
@@ -58,28 +62,77 @@ const Slide = styled.div`
 
 		color: ${Color.grey};
 	}
+
+	${props => props.background === true && css`
+		background-image: url("https://www.djbm.or.kr/main/images/korean/main/main_01.jpg");
+		background-size: cover;
+		background-position: right;
+		background-color: transparent;
+		border: none;
+		color: ${Color.white};
+
+		.yearMonth {
+			color: ${Color.lightgrey};
+		}
+
+		.content {
+			color: ${Color.lightgrey};
+		}
+	`};
 `
 
-const Slider = ({carouselIndex}) => {
-	const array = Array.from(News);
-
-	const sortFn = (a, b) => {
-		if (carouselIndex >= 0) {
-			return ((a.id + carouselIndex) % News.length) - ((b.id + carouselIndex) % News.length);
-		}
-		else return ((a.id - (-carouselIndex % News.length) + News.length) % News.length) - ((b.id - (-carouselIndex % News.length) + News.length) % News.length);
+const Slider = ({carouselIndex, increased}) => {
+	const ref = useRef(null);
+	const isInitialMount = useRef(true);
+	
+	const showBackgroundImage = (index) => {
+		return (index) === 0 || (index === News.length - 1);
 	}
-
-	return (<Container>
-		{array.sort(sortFn).map((news, index) => (
-			<Slide key={index}>
-				<div className={"day"}>{news.date[1]}</div>
-				<div className={"yearMonth"}>{news.date[0]}</div>
-				<div className={"title"}>{news.title}</div>
-				<div className={"content"}>{news.content}</div>
-			</Slide>
-		))}
-	</Container>)
+	
+	useEffect(() => {
+		if (isInitialMount.current) {
+			isInitialMount.current = false;
+		}
+		else {
+			ref.current.style.transform = `translateX(${increased ? 2 : -2}0rem)`;
+			ref.current.style.transition = `all 0.5s ease`;
+		}
+	}, [carouselIndex, increased]);
+	
+	const moveSlide = () => {
+		if (increased) {
+			ref.current.removeChild(ref.current.lastElementChild);
+			ref.current.insertBefore(ref.current.lastElementChild.cloneNode(true), ref.current.firstElementChild);
+		}
+		else {
+			ref.current.removeChild(ref.current.firstElementChild);
+			ref.current.appendChild(ref.current.firstElementChild.cloneNode(true));
+		}
+	};
+	
+	return (
+		<div>
+			<Container ref={ref} onTransitionEnd={(event) => {
+				event.target.removeAttribute("style");
+				moveSlide();
+			}}>
+				{News.map((news, index) => (
+					<Slide key={index} background={showBackgroundImage(news.id)}>
+						<div className={"day"}>{news.date[1]}</div>
+						<div className={"yearMonth"}>{news.date[0]}</div>
+						<div className={"title"}>{news.title}</div>
+						<div className={"content"}>{news.content}</div>
+					</Slide>
+				))}
+				<Slide background={showBackgroundImage(0)}>
+					<div className={"day"}>{News[0].date[1]}</div>
+					<div className={"yearMonth"}>{News[0].date[0]}</div>
+					<div className={"title"}>{News[0].title}</div>
+					<div className={"content"}>{News[0].content}</div>
+				</Slide>
+			</Container>
+		</div>
+	)
 };
 
 export default Slider;
