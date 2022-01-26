@@ -36,7 +36,8 @@ const Text = styled.div`
 	position: relative;
 	
 	::after {
-		content: ">";
+		content: "keyboard_arrow_right";
+		font-family: Material Icons, sans-serif;
 		text-align: right;
 		position: absolute;
 		right: 0;

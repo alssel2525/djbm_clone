@@ -37,7 +37,7 @@ const Slide = styled.div`
 
 	.yearMonth {
 		text-align: right;
-		font-size: 1rem;
+		font-size: 0.9rem;
 		color: ${Color.grey};
 	}
 
@@ -49,7 +49,7 @@ const Slide = styled.div`
 		margin-top: 0.3rem;
 
 		font-size: 1.1rem;
-		font-weight: bold;
+		font-weight: 700;
 	}
 
 	.content {
@@ -58,6 +58,8 @@ const Slide = styled.div`
 		display: -webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
+		font-weight: 300;
+		font-size: 0.9rem;
 
 		margin-top: 0.5rem;
 
@@ -65,7 +67,9 @@ const Slide = styled.div`
 	}
 
 	${props => props.background === true && css`
-		background-image: url("https://www.djbm.or.kr/main/images/korean/main/main_01.jpg");
+		background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1)),
+		url("https://www.djbm.or.kr/main/images/korean/main/main_01.jpg");
+		
 		background-size: cover;
 		background-position: right;
 		background-color: transparent;
@@ -80,10 +84,10 @@ const Slide = styled.div`
 			color: ${Color.lightgrey};
 		}
 	`};
-	
+
 	&:hover {
 		transform: scale(1.05);
-		
+
 		.content {
 			text-decoration: underline;
 		}

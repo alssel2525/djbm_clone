@@ -22,7 +22,16 @@ const Container = styled.a`
 		margin-left: 1rem;
 		font-weight: bold;
 		font-size: 1.1rem;
-		line-height: calc(1.2rem * 1.8);
+		line-height: calc(1.1rem * 1.8);
+		
+		::after {
+			content: "keyboard_arrow_right";
+			font-family: Material Icons, sans-serif;
+			margin-left: 1rem;
+			font-weight: normal;
+			font-style: normal;
+			font-size: 1rem;
+		}
 	}
 `
 
@@ -37,7 +46,7 @@ const ButtonWithIcon = ({link}) => {
 			<span className={"text"}>
 				검체분양 총괄시스템
 				<br/>
-				바로가기 >
+				바로가기
 			</span>
 		</Container>
 	)
