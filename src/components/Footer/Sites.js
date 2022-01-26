@@ -4,6 +4,7 @@ import Color from "../../Color";
 const Container = styled.div`
 	position: absolute;
 	right: 0;
+	top: 0;
 
 	fieldset {
 		width: 100%;
@@ -13,6 +14,10 @@ const Container = styled.div`
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
+		
+		&:hover {
+			border-color: #454c69;
+		}
 	}
 
 	label {
@@ -29,13 +34,18 @@ const Container = styled.div`
 		box-sizing: border-box;
 
 		::after {
-			content: "↑";
+			font-family: Material Icons, sans-serif;
+			content: "expand_more";
 			position: absolute;
 			right: 0.5rem;
 			line-height: 2.5rem;
 			transition: transform .3s;
 			color: white;
 		}
+	}
+	
+	&:hover label::after {
+		transform: rotate(180deg);
 	}
 
 	select {
