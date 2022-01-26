@@ -9,7 +9,6 @@ const Container = styled.div`
 	height: auto;
 	bottom: 4rem;
 	left: -20rem;
-	overflow: hidden;
 	display: flex;
 `
 
@@ -27,6 +26,8 @@ const Slide = styled.div`
 	border: 1px ${Color.lightgrey} solid;
 	background-color: ${Color.white};
 	color: ${Color.black};
+	transition: 0.5s;
+	cursor: pointer;
 
 	.day {
 		text-align: right;
@@ -79,11 +80,20 @@ const Slide = styled.div`
 			color: ${Color.lightgrey};
 		}
 	`};
+	
+	&:hover {
+		transform: scale(1.05);
+		
+		.content {
+			text-decoration: underline;
+		}
+	}
 `
 
 const Slider = ({carouselIndex, increased}) => {
 	const ref = useRef(null);
 	const isInitialMount = useRef(true);
+	const isSlideMoving = useRef(false);
 	
 	const array = News.sort((a, b) => {
 		return (a.id + 4) % News.length - (b.id + 4) % News.length;
@@ -98,6 +108,7 @@ const Slider = ({carouselIndex, increased}) => {
 			isInitialMount.current = false;
 		}
 		else {
+			isSlideMoving.current = true;
 			ref.current.style.transform = `translateX(${increased ? 2 : -2}0rem)`;
 			ref.current.style.transition = `all 0.5s ease`;
 		}
@@ -117,8 +128,11 @@ const Slider = ({carouselIndex, increased}) => {
 	return (
 		<div>
 			<Container ref={ref} onTransitionEnd={(event) => {
-				event.target.removeAttribute("style");
-				moveSlide();
+				if (isSlideMoving.current) {
+					event.target.removeAttribute("style");
+					moveSlide();
+					isSlideMoving.current = false;
+				}
 			}}>
 				{array.map((news, index) => (
 					<Slide key={index} background={showBackgroundImage(news.id)}>
