@@ -1,13 +1,26 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import {useState} from "react";
 import Color from "../../../../Color";
 
 const Container = styled.div`
-	width: 400px; // (1280 - (40 * 2)) / 3
+	width: 100%; // (1280 - (40 * 2)) / 3 => 400px
 	height: 300px;
+	:is(:not(:first-child)) {
+		margin-left: 40px;
+	}
+	transform: translateY(5%);
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
+	opacity: 0;
+
+	transition: 0.5s ease;
+
+	${props => props.index !== -1 && css`
+		transition-delay: ${props.index * 200 + 800}ms;
+		transform: translateY(0);
+		opacity: 1;
+	`};
 `;
 
 const Image = styled.div`
@@ -56,7 +69,7 @@ const More = styled.div`
 	transition: all 0.5s;
 	overflow: hidden;
 	visibility: hidden;
-	
+
 	&.active {
 		visibility: visible;
 		height: 42px;
@@ -95,11 +108,12 @@ const Title = styled.div`
 	}
 `
 
-const Card = ({card}) => {
+const Card = ({card, index}) => {
 	const [isHover, setIsHover] = useState(false);
 	
 	return (
-		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}
+			index={index}>
 			<Image background={card.background} className={isHover ? "active" : ""}>
 				<More className={isHover ? "active" : ""}>자세히 보기</More>
 			</Image>
