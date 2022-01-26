@@ -43,6 +43,7 @@ const Content = styled.div`
 		margin-right: 3rem;
 		color: ${Color.grey};
 		font-size: 0.9rem;
+		word-break: keep-all;
 		
 		strong {
 			color: ${Color.black};
