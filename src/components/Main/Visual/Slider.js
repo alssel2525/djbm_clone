@@ -85,6 +85,10 @@ const Slider = ({carouselIndex, increased}) => {
 	const ref = useRef(null);
 	const isInitialMount = useRef(true);
 	
+	const array = News.sort((a, b) => {
+		return (a.id + 4) % News.length - (b.id + 4) % News.length;
+	})
+	
 	const showBackgroundImage = (index) => {
 		return (index) === 0 || (index === News.length - 1);
 	}
@@ -116,7 +120,7 @@ const Slider = ({carouselIndex, increased}) => {
 				event.target.removeAttribute("style");
 				moveSlide();
 			}}>
-				{News.map((news, index) => (
+				{array.map((news, index) => (
 					<Slide key={index} background={showBackgroundImage(news.id)}>
 						<div className={"day"}>{news.date[1]}</div>
 						<div className={"yearMonth"}>{news.date[0]}</div>
@@ -124,11 +128,11 @@ const Slider = ({carouselIndex, increased}) => {
 						<div className={"content"}>{news.content}</div>
 					</Slide>
 				))}
-				<Slide background={showBackgroundImage(0)}>
-					<div className={"day"}>{News[0].date[1]}</div>
-					<div className={"yearMonth"}>{News[0].date[0]}</div>
-					<div className={"title"}>{News[0].title}</div>
-					<div className={"content"}>{News[0].content}</div>
+				<Slide background={showBackgroundImage(array[0].id)}>
+					<div className={"day"}>{array[0].date[1]}</div>
+					<div className={"yearMonth"}>{array[0].date[0]}</div>
+					<div className={"title"}>{array[0].title}</div>
+					<div className={"content"}>{array[0].content}</div>
 				</Slide>
 			</Container>
 		</div>
