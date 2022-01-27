@@ -4,7 +4,7 @@ import Color from "../../../Color";
 const Container = styled.a`
 	width: 17rem;
 	height: 4.5rem;
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 	padding: 1rem;
 	border-radius: 5px;
 	background: ${Color.gradient};

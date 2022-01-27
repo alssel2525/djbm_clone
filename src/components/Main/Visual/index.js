@@ -29,12 +29,15 @@ const TextContainer = styled.div`
 	max-width: 100%;
 	height: auto;
 	position: relative;
-	margin-top: 20rem;
-	color: ${Color.grey};
+	margin-top: 18rem;
+	color: ${Color.black};
 
 	strong {
-		color: ${Color.black};
 		font-size: 3.5rem;
+	}
+	
+	span {
+		font-weight: 300;
 	}
 `
 
