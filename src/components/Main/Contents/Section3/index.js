@@ -5,6 +5,7 @@ import BoxDocument from "./BoxDocument";
 
 const Container = styled.div`
     width: 100vw;
+	position: relative;
 	padding: 2rem 0;
 	
 	.__1280 {
