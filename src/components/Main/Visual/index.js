@@ -14,7 +14,7 @@ const Container = styled.div`
 	padding: 0;
 	box-sizing: border-box;
 	display: inline-block;
-	overflow: hidden; // 좌우 carousel 영역을 안 보이게 하기 위함
+	overflow-y: hidden; // 좌우 carousel 영역을 안 보이게 하기 위함
 
 	.__1280 {
 		width: 1280px;

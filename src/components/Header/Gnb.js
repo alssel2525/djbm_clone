@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.nav`
 	width: 840px;
@@ -81,6 +82,25 @@ const Container = styled.nav`
 			height: 260px;
 		}
 	`
+	}
+
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 600px;
+		height: 100vh;
+		position: fixed;
+		right: 0;
+		top: 0;
+		flex-direction: column;
+
+		${props => props.isHover === true && css`
+			right: 0;
+		`}
+
+		
+		::after {
+			content: "";
+			width: 0;
+		}
 	}
 `
 
