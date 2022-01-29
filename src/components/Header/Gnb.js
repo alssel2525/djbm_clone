@@ -4,84 +4,77 @@ import {Link} from "react-router-dom";
 import Color from "../../Color";
 
 const Container = styled.nav`
-	float: right;
-	margin: 5rem auto 0;
-	list-style: none;
+	width: 840px;
+	margin: 4rem 8px auto auto;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	text-decoration: none;
 	box-sizing: border-box;
 
-	#gnb {
+	a {
+		text-decoration: none;
+		color: ${Color.black};
+	}
+
+	.content {
 		transition: all 0.3s;
-		display: block;
-		list-style: none;
+		display: flex;
+		position: relative;
 		margin: 0;
 		padding: 0;
+	}
 
-		> li {
-			margin-left: 6rem;
-			position: relative;
-			display: inline-block;
-			margin-bottom: 2rem;
+	.depth1 {
+		color: ${Color.black};
+		text-transform: uppercase;
+		font-weight: bold;
+		text-decoration: none;
+		font-size: 1.2rem;
+	}
 
-			> a {
-				color: ${Color.black};
-				text-transform: uppercase;
+	.depth2 {
+		position: absolute;
+		top: calc((120px - 4rem - 1.2rem) * 2);
+		left: 0;
+		max-width: 100%;
+		display: none;
+		white-space: nowrap;
+		padding: 0;
+
+		flex-direction: column;
+
+		a {
+			margin-top: 1rem;
+
+			&:hover {
 				font-weight: bold;
-				text-decoration: none;
-				font-size: 1.2rem;
-			}
-
-			.depth2 {
-				position: absolute;
-				top: 6rem;
-				left: 0;
-				width: 100%;
-				display: none;
-				white-space: nowrap;
-				padding: 0;
-
-				> li {
-					margin: 0 0 1rem;
-					list-style: none;
-
-					> a {
-						position: relative;
-						padding: 5px 0;
-						text-decoration: none;
-						color: ${Color.black};
-						
-						&:hover {
-							font-weight: bold;
-							text-decoration: underline;
-						}
-					}
-				}
+				text-decoration: underline;
 			}
 		}
 	}
 
 	// lnb 배경
 	::after {
-		position: absolute;
 		content: "";
 		width: 100vw;
 		height: 0;
-		left: 0;
-		margin-left: calc(-50vw + 50%);
-		transition: all 0.3s;
+		position: absolute;
+		right: 0;
+		margin-right: calc(-1 * (8px + (100vw - 1280px) / 2));
+		top: calc(-4rem + 120px); // - Gnb margin-top + header container height
+		transition: height 0.3s;
 		opacity: 90%;
 		background-color: #f7f8fa;
 		z-index: -1;
 	}
 
 	${props => props.isHover === true && css`
-		#gnb {
-			> li {
-				.depth2 {
-					display: inline;
-					padding: 0;
-					padding-inline: 0;
-				}
-			}
+		.depth2 {
+			display: flex;
+			padding: 0;
+			padding-inline: 0;
 		}
 
 		::after {
@@ -89,23 +82,21 @@ const Container = styled.nav`
 		}
 	`
 	}
-`;
+`
 
 const Gnb = ({isHover}) => {
 	return (
 		<Container isHover={isHover}>
-			<ul id={"gnb"}>
-				{Menus.map((menu, index) => (
-					<li key={index}>
-						<Link to={"/"}>{menu.depth1}</Link>
-						<ul className={"depth2"}>
-							{menu.depth2.map((depth2item, index) => (
-								<li key={index}><Link to={"/"}>{depth2item}</Link></li>
-							))}
-						</ul>
-					</li>
-				))}
-			</ul>
+			{Menus.map((menu, index) => (
+				<div key={index} className={"content"}>
+					<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
+					<div className={"depth2"}>
+						{menu.depth2.map((depth2item, index) => (
+							<Link to={"/"} key={index}>{depth2item}</Link>
+						))}
+					</div>
+				</div>
+			))}
 		</Container>
 	)
 };
