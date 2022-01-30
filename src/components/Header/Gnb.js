@@ -22,6 +22,7 @@ const Container = styled.nav`
 	.content {
 		transition: all 0.3s;
 		display: flex;
+		flex-direction: row;
 		position: relative;
 		margin: 0;
 		padding: 0;
@@ -83,33 +84,58 @@ const Container = styled.nav`
 		}
 	`
 	}
-
+	// end pc
+	
+	// start tablet
 	${mediaQuery(BREAKPOINT_TABLET)} {
-		width: 600px;
+		width: 300px;
 		height: 100vh;
 		position: fixed;
-		right: 0;
+		right: -100%;
 		top: 0;
 		flex-direction: column;
+		justify-content: left;
+		transition: 0.5s all ease;
+		background: ${Color.white};
+		margin: 0;
+		border-top: ${Color.red} solid 70px;
+		box-sizing: border-box;
 
-		${props => props.isHover === true && css`
-			right: 0;
-		`}
+		.depth2 {
+			position: absolute;
+			left: 0;
+			display: none;
+			white-space: nowrap;
+			padding: 0;
+			flex-direction: column;
 
-		
+			a {
+				&:hover {
+					font-weight: bold;
+					text-decoration: underline;
+				}
+			}
+		}
+
 		::after {
 			content: "";
 			width: 0;
 		}
+
+		${props => props.isActive === true && css`
+			right: 0;
+		`
+		}
 	}
 `
 
-const Gnb = ({isHover}) => {
+const Gnb = ({isHover, isActive}) => {
 	return (
-		<Container isHover={isHover}>
+		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
 					<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
+					<div className={"Gnb--showButton"}/>
 					<div className={"depth2"}>
 						{menu.depth2.map((depth2item, index) => (
 							<Link to={"/"} key={index}>{depth2item}</Link>

@@ -38,19 +38,46 @@ const Container = styled.div`
 			width: 100%;
 			position: absolute;
 		}
+
+		.Header--MenuButton {
+			color: ${props => props.isActive ? Color.white : Color.black};
+			position: absolute;
+			display: none;
+			top: 35px;
+			right: 16px;
+			transform: translateY(-50%);
+			cursor: pointer;
+
+			${mediaQuery(BREAKPOINT_TABLET)} {
+				display: block;
+			}
+			
+			
+		}
+	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		height: 70px;
 	}
 `
 
+
 const Header = () => {
 	const [isHover, setIsHover] = useState(false);
+	const [isActive, setIsActive] = useState(false);
 	const [isKor, setIsKor] = useState(true);
 	
+	const toggleIsActive = () => {
+		setIsActive(prevState => !prevState);
+	}
+	
 	return (
-		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} isActive={isActive}>
 			<div className={`__1280`}>
 				<Link to={"/"} className={"logo"}/>
 				<Utils isKor={isKor} setIsKor={setIsKor}/>
-				<Gnb isHover={isHover}/>
+				<Gnb isHover={isHover} isActive={isActive}/>
+				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive}>{isActive ? `close` : `menu_open`}</i>
 			</div>
 		</Container>
 	)
