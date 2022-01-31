@@ -76,35 +76,23 @@ const Container = styled.nav`
 		right: -100%;
 		top: 0;
 		margin: 0;
+		display: flex;
 		flex-direction: column;
 		justify-content: left;
-		transition: 0.5s all ease;
+		transition: 0.5s right ease;
 		background: ${Color.white};
 		border-top: ${Color.red} solid 70px;
 		box-sizing: border-box;
 
 		.content {
+			display: block;
 			flex-direction: column;
+			box-sizing: border-box;
+			overflow: hidden;
 		}
 
 		.Gnb--showButton {
 			display: block;
-		}
-
-		.depth2 {
-			position: absolute;
-			left: 0;
-			display: none;
-			white-space: nowrap;
-			padding: 0;
-			flex-direction: column;
-
-			a {
-				&:hover {
-					font-weight: bold;
-					text-decoration: underline;
-				}
-			}
 		}
 
 		::after {
@@ -117,14 +105,13 @@ const Container = styled.nav`
 		`
 		}
 	}
-
 	// end tablet
 `
 
 const Depth2 = styled.div`
+	height: 100%;
 	white-space: nowrap;
 	padding: 0;
-
 	flex-direction: column;
 
 	a {
@@ -136,6 +123,7 @@ const Depth2 = styled.div`
 		}
 	}
 
+	// start pc
 	${mediaQuery(BREAKPOINT_PC)} {
 		position: absolute;
 		top: calc((120px - 4rem - 1.2rem) * 2);
@@ -149,18 +137,32 @@ const Depth2 = styled.div`
 			padding-inline: 0;
 		`}
 	}
+	// end pc
 
+	// start tablet
 	${mediaQuery(BREAKPOINT_TABLET)} {
-		display: none;
+		position: relative;
+		height: 0;
+		margin-top: 0;
+		display: flex;
+		flex-direction: column;
+		transition: 0.3s all ease;
+		overflow: hidden;
+		
+		a {
+			transition: 0.3s all ease;
+			display: none;
+		}
 		
 		${props => props.isActive === true && css`
-			display: flex;
-			flex-direction: column;
-			position: relative;
-			margin-top: 0;
+			height: 100%;
+			
+			a {
+				display: block;
+			}
 		`};
 	}
-
+	// end tablet
 `
 
 const Gnb = ({isHover, isActive}) => {
@@ -170,7 +172,7 @@ const Gnb = ({isHover, isActive}) => {
 		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
-					<Link to={"/"} className={"depth1"} onClick={() => setActiveIndex(index)}>{menu.depth1}</Link>
+					<Link to={"/"} className={"depth1"} onClick={() => setActiveIndex(prevState => {if (prevState === index) return -1; else return index})}>{menu.depth1}</Link>
 					<div className={"Gnb--showButton"} onClick={() => setActiveIndex(index)}/>
 					<Depth2 isActive={index === activeIndex} isHover={isHover}>
 						{menu.depth2.map((depth2item, index) => (
