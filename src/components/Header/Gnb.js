@@ -3,6 +3,7 @@ import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
 import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import {useState} from "react";
 
 const Container = styled.nav`
 	width: 840px;
@@ -34,6 +35,10 @@ const Container = styled.nav`
 		font-weight: bold;
 		text-decoration: none;
 		font-size: 1.2rem;
+	}
+
+	.Gnb--showButton {
+		display: none;
 	}
 
 	.depth2 {
@@ -82,11 +87,9 @@ const Container = styled.nav`
 		::after {
 			height: 260px;
 		}
-	`
-	}
-	// end pc
-	
-	// start tablet
+	`}
+		// end pc
+		// start tablet
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		width: 300px;
 		height: 100vh;
@@ -100,6 +103,10 @@ const Container = styled.nav`
 		margin: 0;
 		border-top: ${Color.red} solid 70px;
 		box-sizing: border-box;
+
+		.Gnb--showButton {
+			display: block;
+		}
 
 		.depth2 {
 			position: absolute;
@@ -127,20 +134,55 @@ const Container = styled.nav`
 		`
 		}
 	}
+
+	// end tablet
+`
+
+const Depth2 = styled.div`
+	position: absolute;
+	top: calc((120px - 4rem - 1.2rem) * 2);
+	left: 0;
+	max-width: 100%;
+	display: none;
+	white-space: nowrap;
+	padding: 0;
+
+	flex-direction: column;
+
+	a {
+		margin-top: 1rem;
+
+		&:hover {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+
+	${props => props.isHover === true && css`
+		display: flex;
+		padding: 0;
+		padding-inline: 0;
+	`}
+
+	${props => props.isActive === true && css`
+		display: block;
+	`};
 `
 
 const Gnb = ({isHover, isActive}) => {
+	const [activeIndex, setActiveIndex] = useState(-1);
+	
 	return (
 		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
 					<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
-					<div className={"Gnb--showButton"}/>
-					<div className={"depth2"}>
+					<div className={"Gnb--showButton"} onClick={() => setActiveIndex(index)}/>
+					<Depth2 isActive={index === activeIndex} isHover={isHover}>
 						{menu.depth2.map((depth2item, index) => (
 							<Link to={"/"} key={index}>{depth2item}</Link>
 						))}
-					</div>
+					</Depth2>
 				</div>
 			))}
 		</Container>
