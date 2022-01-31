@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 import {useState} from "react";
 
 const Container = styled.nav`
@@ -41,27 +41,6 @@ const Container = styled.nav`
 		display: none;
 	}
 
-	.depth2 {
-		position: absolute;
-		top: calc((120px - 4rem - 1.2rem) * 2);
-		left: 0;
-		max-width: 100%;
-		display: none;
-		white-space: nowrap;
-		padding: 0;
-
-		flex-direction: column;
-
-		a {
-			margin-top: 1rem;
-
-			&:hover {
-				font-weight: bold;
-				text-decoration: underline;
-			}
-		}
-	}
-
 	// lnb 배경
 	::after {
 		content: "";
@@ -96,13 +75,17 @@ const Container = styled.nav`
 		position: fixed;
 		right: -100%;
 		top: 0;
+		margin: 0;
 		flex-direction: column;
 		justify-content: left;
 		transition: 0.5s all ease;
 		background: ${Color.white};
-		margin: 0;
 		border-top: ${Color.red} solid 70px;
 		box-sizing: border-box;
+
+		.content {
+			flex-direction: column;
+		}
 
 		.Gnb--showButton {
 			display: block;
@@ -139,11 +122,6 @@ const Container = styled.nav`
 `
 
 const Depth2 = styled.div`
-	position: absolute;
-	top: calc((120px - 4rem - 1.2rem) * 2);
-	left: 0;
-	max-width: 100%;
-	display: none;
 	white-space: nowrap;
 	padding: 0;
 
@@ -158,15 +136,31 @@ const Depth2 = styled.div`
 		}
 	}
 
-	${props => props.isHover === true && css`
-		display: flex;
-		padding: 0;
-		padding-inline: 0;
-	`}
+	${mediaQuery(BREAKPOINT_PC)} {
+		position: absolute;
+		top: calc((120px - 4rem - 1.2rem) * 2);
+		left: 0;
+		max-width: 100%;
+		display: none;
+		
+		${props => props.isHover === true && css`
+			display: flex;
+			padding: 0;
+			padding-inline: 0;
+		`}
+	}
 
-	${props => props.isActive === true && css`
-		display: block;
-	`};
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		display: none;
+		
+		${props => props.isActive === true && css`
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			margin-top: 0;
+		`};
+	}
+
 `
 
 const Gnb = ({isHover, isActive}) => {
@@ -176,7 +170,7 @@ const Gnb = ({isHover, isActive}) => {
 		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
-					<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
+					<Link to={"/"} className={"depth1"} onClick={() => setActiveIndex(index)}>{menu.depth1}</Link>
 					<div className={"Gnb--showButton"} onClick={() => setActiveIndex(index)}/>
 					<Depth2 isActive={index === activeIndex} isHover={isHover}>
 						{menu.depth2.map((depth2item, index) => (
