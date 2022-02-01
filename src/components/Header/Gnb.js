@@ -57,12 +57,6 @@ const Container = styled.nav`
 	}
 
 	${props => props.isHover === true && css`
-		.depth2 {
-			display: flex;
-			padding: 0;
-			padding-inline: 0;
-		}
-
 		::after {
 			height: 260px;
 		}
@@ -90,6 +84,7 @@ const Container = styled.nav`
 			flex-direction: column;
 			box-sizing: border-box;
 			overflow: hidden;
+			border-bottom: ${Color.lightgrey} solid 1px;
 		}
 
 		.depth1 {
@@ -134,7 +129,7 @@ const Depth2 = styled.div`
 		left: 0;
 		max-width: 100%;
 		display: none;
-		
+
 		a {
 			margin-top: 1rem;
 		}
@@ -151,13 +146,13 @@ const Depth2 = styled.div`
 	// start tablet
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		position: relative;
-		margin-top: 0;
 		display: flex;
 		flex-direction: column;
-		height: auto;
+		box-sizing: border-box;
+		margin-top: 0;
 		transition: all 0.5s ease;
 		overflow: hidden;
-		
+
 		a {
 			padding-left: 20px;
 			font-size: 1rem;
@@ -176,9 +171,11 @@ const Gnb = ({isHover, isActive}) => {
 		depth2s.forEach((element, index) => {
 			if (index === activeIndex) {
 				element.style.maxHeight = `${element.scrollHeight}px`;
+				element.style.marginBottom = `16px`;
 			}
 			else {
 				element.style.maxHeight = 0;
+				element.style.marginBottom = 0;
 			}
 		});
 		
@@ -198,9 +195,10 @@ const Gnb = ({isHover, isActive}) => {
 		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
-					<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}} onClick={() => setActiveIndex(prevState => {
-						if (prevState === index) return -1; else return index
-					})}>
+					<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}
+						onClick={() => setActiveIndex(prevState => {
+							if (prevState === index) return -1; else return index
+						})}>
 						<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
 						<div className={"Gnb--showButton material-icons"}>expand_more</div>
 					</div>
