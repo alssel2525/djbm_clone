@@ -51,8 +51,6 @@ const Container = styled.div`
 			${mediaQuery(BREAKPOINT_TABLET)} {
 				display: block;
 			}
-			
-			
 		}
 	}
 	
@@ -77,7 +75,7 @@ const Header = () => {
 				<Link to={"/"} className={"logo"}/>
 				<Utils isKor={isKor} setIsKor={setIsKor}/>
 				<Gnb isHover={isHover} isActive={isActive}/>
-				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive}>{isActive ? `close` : `menu_open`}</i>
+				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive} style={{position: isActive ? "fixed" : "absolute"}}>{isActive ? `close` : `menu_open`}</i>
 			</div>
 		</Container>
 	)
