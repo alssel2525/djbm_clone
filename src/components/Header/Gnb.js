@@ -76,6 +76,7 @@ const Container = styled.nav`
 		right: -100%;
 		top: 0;
 		margin: 0;
+		padding: 0 30px;
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
@@ -91,7 +92,13 @@ const Container = styled.nav`
 			overflow: hidden;
 		}
 
+		.depth1 {
+			line-height: 70px;
+		}
+
 		.Gnb--showButton {
+			font-size: 2rem;
+			line-height: 70px;
 			display: block;
 		}
 
@@ -115,13 +122,9 @@ const Depth2 = styled.div`
 	padding: 0;
 	flex-direction: column;
 
-	a {
-		margin-top: 1rem;
-
-		&:hover {
-			font-weight: bold;
-			text-decoration: underline;
-		}
+	a:hover {
+		font-weight: bold;
+		text-decoration: underline;
 	}
 
 	// start pc
@@ -131,6 +134,10 @@ const Depth2 = styled.div`
 		left: 0;
 		max-width: 100%;
 		display: none;
+		
+		a {
+			margin-top: 1rem;
+		}
 
 		${props => props.isHover === true && css`
 			display: flex;
@@ -138,6 +145,7 @@ const Depth2 = styled.div`
 			padding-inline: 0;
 		`}
 	}
+
 	// end pc
 
 	// start tablet
@@ -149,7 +157,14 @@ const Depth2 = styled.div`
 		height: auto;
 		transition: all 0.5s ease;
 		overflow: hidden;
+		
+		a {
+			padding-left: 20px;
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
 	}
+
 	// end tablet
 `
 
@@ -157,13 +172,23 @@ const Gnb = ({isHover, isActive}) => {
 	const [activeIndex, setActiveIndex] = useState(-1);
 	
 	useEffect(() => {
-		const elements = document.querySelectorAll(`.content .depth2`);
-		elements.forEach((element, index) => {
+		const depth2s = document.querySelectorAll(`.content .depth2`);
+		depth2s.forEach((element, index) => {
 			if (index === activeIndex) {
 				element.style.maxHeight = `${element.scrollHeight}px`;
 			}
 			else {
 				element.style.maxHeight = 0;
+			}
+		});
+		
+		const icons = document.querySelectorAll(`.content .Gnb--showButton`);
+		icons.forEach((element, index) => {
+			if (index === activeIndex) {
+				element.style.transform = `rotate(180deg)`;
+			}
+			else {
+				element.style.transform = "";
 			}
 		})
 	}, [activeIndex]);
@@ -173,11 +198,13 @@ const Gnb = ({isHover, isActive}) => {
 		<Container isHover={isHover} isActive={isActive}>
 			{Menus.map((menu, index) => (
 				<div key={index} className={"content"}>
-					<Link to={"/"} className={"depth1"} onClick={() => setActiveIndex(prevState => {
+					<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}} onClick={() => setActiveIndex(prevState => {
 						if (prevState === index) return -1; else return index
-					})}>{menu.depth1}</Link>
-					<div className={"Gnb--showButton"} onClick={() => setActiveIndex(index)}/>
-					<Depth2 isActive={index === activeIndex} isHover={isHover} className={"depth2"}>
+					})}>
+						<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
+						<div className={"Gnb--showButton material-icons"}>expand_more</div>
+					</div>
+					<Depth2 isHover={isHover} className={"depth2"}>
 						{menu.depth2.map((depth2item, index) => (
 							<Link to={"/"} key={index}>{depth2item}</Link>
 						))}
