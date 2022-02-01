@@ -5,6 +5,7 @@ import ButtonWithIcon from "./ButtonWithIcon";
 import Slider from "./Slider";
 import Color from "../../../Color";
 import {News} from "../../../Data";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	height: 100vh;
@@ -14,7 +15,6 @@ const Container = styled.div`
 	padding: 0;
 	box-sizing: border-box;
 	display: inline-block;
-	overflow-y: hidden; // 좌우 carousel 영역을 안 보이게 하기 위함
 
 	.__1280 {
 		width: 1280px;
@@ -22,6 +22,10 @@ const Container = styled.div`
 		margin: 0 auto;
 		position: relative;
 		display: block;
+		
+		${mediaQuery(BREAKPOINT_TABLET)} {
+			width: 100%;
+		}
 	}
 `
 
