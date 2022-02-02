@@ -20,15 +20,6 @@ const Container = styled.nav`
 		color: ${Color.black};
 	}
 
-	.content {
-		transition: all 0.3s;
-		display: flex;
-		flex-direction: row;
-		position: relative;
-		margin: 0;
-		padding: 0;
-	}
-
 	.depth1 {
 		color: ${Color.black};
 		text-transform: uppercase;
@@ -41,33 +32,47 @@ const Container = styled.nav`
 		display: none;
 	}
 
-	// lnb 배경
-	::after {
-		content: "";
-		width: 100vw;
-		height: 0;
-		position: absolute;
-		right: 0;
-		margin-right: calc(-1 * (8px + (100vw - 1280px) / 2));
-		top: calc(-4rem + 120px); // - Gnb margin-top + header container height
-		transition: height 0.3s;
-		opacity: 90%;
-		background-color: #f7f8fa;
-		z-index: -1;
+	// start pc
+	${mediaQuery(BREAKPOINT_PC)} {
+		.content {
+			transition: all 0.3s;
+			display: flex;
+			flex-direction: row;
+			position: relative;
+			margin: 0;
+			padding: 0;
+		}
+
+		// lnb 배경
+		::after {
+			content: "";
+			width: 100vw;
+			height: 0;
+			position: absolute;
+			right: 0;
+			margin-right: calc(-1 * (8px + (100vw - 1280px) / 2));
+			top: calc(-4rem + 120px); // - Gnb margin-top + header container height
+			transition: height 0.3s;
+			opacity: 90%;
+			background-color: #f7f8fa;
+			z-index: -1;
+		}
+
+		${props => props.isHover === true && css`
+			::after {
+				height: 260px;
+			}
+		`};
 	}
 
-	${props => props.isHover === true && css`
-		::after {
-			height: 260px;
-		}
-	`}
-		// end pc
-		// start tablet
+	// end pc
+
+	// start tablet
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		width: 300px;
 		height: 100vh;
 		position: fixed;
-		right: -100%;
+		right: -300px;
 		top: 0;
 		margin: 0;
 		padding: 0 30px;
@@ -97,15 +102,28 @@ const Container = styled.nav`
 			display: block;
 		}
 
+		// 어둡게 만드는 배경
 		::after {
 			content: "";
-			width: 0;
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			right: 0;
+			top: 0;
+			opacity: 0;
+			background-color: ${Color.black};
+			z-index: -1;
+			transition: all 0.5s ease;
 		}
 
 		${props => props.isActive === true && css`
 			right: 0;
-		`
-		}
+
+			::after {
+				opacity: 0.9;
+				right: 300px;
+			}
+		`};
 	}
 
 	// end tablet
