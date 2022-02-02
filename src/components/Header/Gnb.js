@@ -110,6 +110,7 @@ const Container = styled.nav`
 			position: fixed;
 			right: 0;
 			top: 0;
+			visibility: hidden;
 			opacity: 0;
 			background-color: ${Color.black};
 			z-index: -1;
@@ -120,6 +121,7 @@ const Container = styled.nav`
 			right: 0;
 
 			::after {
+				visibility: visible;
 				opacity: 0.9;
 				right: 300px;
 			}
