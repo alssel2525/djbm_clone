@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Color from "../../../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
     width: 400px;
@@ -10,6 +11,10 @@ const Container = styled.div`
 	justify-content: space-around;
 	border: ${Color.grey} 1px solid;
 	box-sizing: border-box;
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 60%;
+	}
 `;
 
 const Content = styled.div`
@@ -17,7 +22,7 @@ const Content = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: left;
 	
 	.icon {
 		width: 4rem;
@@ -40,7 +45,7 @@ const Content = styled.div`
 	
 	.text {
 		margin-left: 1rem;
-		margin-right: 3rem;
+		margin-right: 1rem;
 		color: ${Color.grey};
 		font-size: 0.9rem;
 		word-break: keep-all;
@@ -60,15 +65,14 @@ const Content = styled.div`
 		right: 0;
 	}
 	
-	:is(:not(:first-child)) {
+	:not(:first-child) {
 		::before {
 			content: "";
 			width: 100%;
-			height: 1px;
+			height: 0;
 			position: absolute;
 			top: -50%;
 			border-top: 2px dotted ${Color.lightgrey};
-			display: block;
 		}
 	}
 `
