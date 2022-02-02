@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Color from "../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.div`
 	position: absolute;
@@ -59,6 +60,11 @@ const Container = styled.div`
 		align-items: center;
 		box-sizing: border-box;
 		opacity: 0;
+	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		position: relative;
+		margin-top: 1rem;
 	}
 `;
 

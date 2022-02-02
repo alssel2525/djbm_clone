@@ -9,7 +9,7 @@ const AppContainer = styled.div`
 	height: 100%;
 	min-height: 100vh;
 	margin: 0;
-	padding: 0 0 180px; // footer
+	padding: 0;
 	position: relative;
 	overflow: hidden;
 `
