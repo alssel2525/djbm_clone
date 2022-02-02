@@ -1,13 +1,16 @@
 import styled, {css} from "styled-components";
 import {useState} from "react";
 import Color from "../../../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 100%; // (1280 - (40 * 2)) / 3 => 400px
 	height: 300px;
-	:is(:not(:first-child)) {
+
+	:not(:first-child) {
 		margin-left: 40px;
 	}
+
 	transform: translateY(5%);
 	cursor: pointer;
 	position: relative;
@@ -21,6 +24,12 @@ const Container = styled.div`
 		transform: translateY(0);
 		opacity: 1;
 	`};
+
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		:not(:first-child) {
+			margin-left: 0;
+		}
+	}
 `;
 
 const Image = styled.div`

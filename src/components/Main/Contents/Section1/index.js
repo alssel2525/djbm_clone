@@ -3,6 +3,7 @@ import Color from "../../../../Color";
 import Cards from "./Cards";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
 import {animated, useTrail} from "react-spring";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 100vw;
@@ -17,6 +18,11 @@ const Container = styled.div`
 		margin: 0 auto;
 		position: relative;
 		box-sizing: border-box;
+		
+		${mediaQuery(BREAKPOINT_TABLET)} {
+			width: 100%;
+			padding: 0 16px;
+		}
 	}
 
 `
