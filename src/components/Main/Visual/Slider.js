@@ -3,11 +3,21 @@ import {News} from "../../../Data";
 import Color from "../../../Color";
 import {useEffect, useRef} from "react";
 
+// 좌우 Carousel을 숨기기 위한 컨테이너
+const HiddenContainer = styled.div`
+	width: 100%;
+	height: 13rem;
+	position: absolute;
+	bottom: 3rem;
+	left: 0;
+	overflow-x: hidden;
+`
+
 const Container = styled.div`
 	position: absolute;
 	width: 200vw;
 	height: auto;
-	bottom: 4rem;
+	bottom: 1rem;
 	left: -20rem;
 	display: flex;
 `
@@ -130,7 +140,7 @@ const Slider = ({carouselIndex, increased}) => {
 	};
 	
 	return (
-		<div>
+		<HiddenContainer>
 			<Container ref={ref} onTransitionEnd={(event) => {
 				if (isSlideMoving.current) {
 					event.target.removeAttribute("style");
@@ -153,7 +163,7 @@ const Slider = ({carouselIndex, increased}) => {
 					<div className={"content"}>{array[0].content}</div>
 				</Slide>
 			</Container>
-		</div>
+		</HiddenContainer>
 	)
 };
 

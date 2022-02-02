@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Color from "../../../../Color";
 import thumbnail from "../../../../images/galleryThumbView.jfif"
 import {Link} from "react-router-dom";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 400px;
@@ -10,6 +11,10 @@ const Container = styled.div`
 	flex-direction: column;
 	box-sizing: border-box;
 	border-bottom: 1px solid ${Color.grey};
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 60%;
+	}
 `;
 
 const Document = styled.div`
@@ -75,6 +80,10 @@ const Document = styled.div`
 			color: ${Color.grey};
 			font-weight: normal;
 		}
+	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		justify-content: space-evenly;
 	}
 `
 

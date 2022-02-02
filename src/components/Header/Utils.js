@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
 import color from "../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.div`
 	position: absolute;
@@ -22,6 +23,10 @@ const Container = styled.div`
 			text-decoration: none;
 			color: ${Color.black};
 		}
+	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		display: none;
 	}
 `;
 

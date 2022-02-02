@@ -5,6 +5,7 @@ import ButtonWithIcon from "./ButtonWithIcon";
 import Slider from "./Slider";
 import Color from "../../../Color";
 import {News} from "../../../Data";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	height: 100vh;
@@ -14,14 +15,20 @@ const Container = styled.div`
 	padding: 0;
 	box-sizing: border-box;
 	display: inline-block;
-	overflow: hidden; // 좌우 carousel 영역을 안 보이게 하기 위함
 
 	.__1280 {
 		width: 1280px;
 		height: 100vh;
-		margin: 0 auto;
+		margin: -1px auto 0;
+		padding-top: 1px;
 		position: relative;
 		display: block;
+		box-sizing: border-box;
+
+		${mediaQuery(BREAKPOINT_TABLET)} {
+			width: 100%;
+			padding: 1px 16px 0;
+		}
 	}
 `
 
@@ -35,7 +42,7 @@ const TextContainer = styled.div`
 	strong {
 		font-size: 3.5rem;
 	}
-	
+
 	span {
 		font-weight: 300;
 	}
@@ -43,7 +50,7 @@ const TextContainer = styled.div`
 
 const Arrow = styled.div`
 	position: absolute;
-	top: 0;
+	top: 18rem;
 	right: 0;
 	color: ${Color.white};
 
@@ -70,6 +77,10 @@ const Arrow = styled.div`
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
+	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		right: 16px;
 	}
 `
 

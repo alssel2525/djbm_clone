@@ -2,9 +2,11 @@ import styled from "styled-components";
 import BoxVideo from "./BoxVideo";
 import BoxQna from "./BoxQna";
 import BoxDocument from "./BoxDocument";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
     width: 100vw;
+	position: relative;
 	padding: 2rem 0;
 	
 	.__1280 {
@@ -12,7 +14,19 @@ const Container = styled.div`
 		margin: 0 auto;
 		padding-bottom: 3rem;
 		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
+		
+		${mediaQuery(BREAKPOINT_TABLET)} {
+			width: 100%;
+			padding: 0 16px 3rem;
+			flex-direction: column;
+			
+			> :not(:first-child) {
+				margin-top: 1rem;
+			}
+		}
 	}
 `;
 

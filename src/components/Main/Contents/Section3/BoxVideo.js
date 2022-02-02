@@ -2,6 +2,7 @@ import styled from "styled-components";
 import video_button from "../../../../images/video_button.png";
 import thumbnail from "../../../../images/thumbnail.jpg";
 import Color from "../../../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 400px;
@@ -11,6 +12,10 @@ const Container = styled.div`
 	box-sizing: border-box;
 	
 	border-bottom: 1px solid ${Color.grey};
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 60%;
+	}
 `;
 
 const Video = styled.div`
