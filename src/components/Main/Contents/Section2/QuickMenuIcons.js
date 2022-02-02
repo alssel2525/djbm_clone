@@ -1,14 +1,18 @@
 import styled, {css} from "styled-components";
 import {MenuData_MainContentsSection2} from "../../../../Data";
 import Color from "../../../../Color";
+import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 70%;
-
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 100%;
+	}
 `;
 
 const Text = styled.div`
