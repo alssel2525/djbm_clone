@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Utils from "./Utils";
 import Color from "../../Color";
 import Gnb from "./Gnb";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 100vw;
@@ -30,13 +30,9 @@ const Container = styled.div`
 			width: 160px;
 			height: 160px;
 			background-image: url(${logo});
+			background-size: cover;
 			position: absolute;
 			transition: all 0.3s;
-		}
-
-		${mediaQuery(BREAKPOINT_TABLET)} {
-			width: 100%;
-			position: absolute;
 		}
 
 		.Header--MenuButton {
@@ -47,16 +43,33 @@ const Container = styled.div`
 			right: 16px;
 			transform: translateY(-50%);
 			cursor: pointer;
+		}
 
-			${mediaQuery(BREAKPOINT_TABLET)} {
+		${mediaQuery(BREAKPOINT_TABLET)} {
+			width: 100%;
+			position: absolute;
+
+			.Header--MenuButton {
 				display: block;
 			}
 		}
 	}
-	
+
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		height: 70px;
 	}
+
+	// start mobile
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		.__1280 {
+			.logo {
+				width: 120px;
+				height: 120px;
+			}
+		}
+	}
+
+	// end mobile
 `
 
 
@@ -75,7 +88,8 @@ const Header = () => {
 				<Link to={"/"} className={"logo"}/>
 				<Utils isKor={isKor} setIsKor={setIsKor}/>
 				<Gnb isHover={isHover} isActive={isActive}/>
-				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive} style={{position: isActive ? "fixed" : "absolute"}}>{isActive ? `close` : `menu_open`}</i>
+				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive}
+					style={{position: isActive ? "fixed" : "absolute"}}>{isActive ? `close` : `menu_open`}</i>
 			</div>
 		</Container>
 	)

@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
-import mediaQuery, {BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 import {useEffect, useState} from "react";
 
 const Container = styled.nav`
@@ -129,6 +129,21 @@ const Container = styled.nav`
 	}
 
 	// end tablet
+	
+	// start mobile
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100vw;
+		right: -100vw;
+		
+		::after {
+			display: none;
+		}
+
+		${props => props.isActive === true && css`
+			right: 0;
+		`}
+	}
+	// end mobile
 `
 
 const Depth2 = styled.div`
