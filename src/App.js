@@ -12,6 +12,11 @@ const AppContainer = styled.div`
 	padding: 0;
 	position: relative;
 	overflow: hidden;
+	
+	// sticky footer를 위해
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 `
 
 function App() {
@@ -22,6 +27,7 @@ function App() {
 					<Header/>
 					<Routes>
 						<Route path={"/"} element={<Main/>}/>
+						<Route path={"/menu/"} element={<Main/>}/>
 					</Routes>
 					<Footer/>
 				</AppContainer>
