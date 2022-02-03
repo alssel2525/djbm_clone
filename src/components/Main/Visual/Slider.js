@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import {News} from "../../../Data";
 import Color from "../../../Color";
 import {useEffect, useRef} from "react";
+import mediaQuery, {BREAKPOINT_MOBILE} from "../../../hooks/mediaQuery";
 
 // 좌우 Carousel을 숨기기 위한 컨테이너
 const HiddenContainer = styled.div`
@@ -11,6 +12,10 @@ const HiddenContainer = styled.div`
 	bottom: 3rem;
 	left: 0;
 	overflow-x: hidden;
+	
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		bottom: 0;
+	}
 `
 
 const Container = styled.div`
