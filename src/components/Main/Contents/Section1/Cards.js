@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {MainContentSection1Cards} from "../../../../Data";
 import Card from "./Card";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 100%;
@@ -14,7 +14,11 @@ const Container = styled.div`
 	
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		flex-direction: column;
-		max-width: 60%;
+		width: 60%;
+	}
+	
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100%;
 	}
 `;
 
