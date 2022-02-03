@@ -2,7 +2,7 @@ export const BREAKPOINT_MOBILE = "mobile";
 export const BREAKPOINT_TABLET = "tablet";
 export const BREAKPOINT_PC = "pc";
 
-const breakPoints = {
+export const BreakPoints = {
 	mobile: 599, // 600
 	tablet: 1279, // 1280
 	pc: 1280,
@@ -27,8 +27,8 @@ ${mediaQueries(BREAKPOINT_TABLET)} {
  */
 
 const mediaQuery = (query) => {
-	if (query === BREAKPOINT_PC) return `@media (min-width: ${breakPoints[query]}px)`;
-	return `@media (max-width: ${breakPoints[query]}px)`;
+	if (query === BREAKPOINT_PC) return `@media (min-width: ${BreakPoints[query]}px)`;
+	return `@media (max-width: ${BreakPoints[query]}px)`;
 };
 
 export default mediaQuery;

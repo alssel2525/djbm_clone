@@ -3,13 +3,12 @@ import Color from "../../Color";
 import logo from "../../images/footlogo.png";
 import Sites from "./Sites";
 import Informations from "./Informations";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 100vw;
 	height: 180px;
 	position: relative;
-	bottom: 0;
 	padding: 2rem 0 4rem;
 	background: ${Color.black};
 	color: ${Color.lightgrey};
@@ -28,15 +27,17 @@ const Container = styled.div`
 	
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		height: 100%;
-
-
-
+		
 		.__1280 {
 			width: 100%;
 			padding: 0 16px;
 			flex-direction: column;
 			align-items: center;
 		}
+	}
+	
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		padding: 2rem 0;
 	}
 `;
 

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Color from "../../../Color";
+import mediaQuery, {BREAKPOINT_MOBILE} from "../../../hooks/mediaQuery";
 
 const Container = styled.a`
-	width: 17rem;
-	height: 4.5rem;
+	width: 18rem;
+	height: 6.5rem;
 	margin-top: 2rem;
 	padding: 1rem;
 	border-radius: 5px;
@@ -13,6 +14,7 @@ const Container = styled.a`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	box-sizing: border-box;
 
 	.icon {
 		font-size: 48px;
@@ -32,6 +34,10 @@ const Container = styled.a`
 			font-style: normal;
 			font-size: 1rem;
 		}
+	}
+	
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100%;
 	}
 `
 

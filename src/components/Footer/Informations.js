@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
-import mediaQuery, {BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 70%;
 	float: right;
+
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100%;
+	}
 `;
 
 const Links = styled.div`

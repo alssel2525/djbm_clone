@@ -8,6 +8,11 @@ const Container = styled.div`
 	width: 100%;
 	padding: 4rem 0;
 	box-sizing: border-box;
+	color: ${Color.black};
+
+	strong {
+		font-size: 2rem;
+	}
 
 	.__1280 {
 		margin: 0 auto;
@@ -22,26 +27,20 @@ const Container = styled.div`
 			transform: ${props => props.isVisible === true ? "scale(1)" : "scale(1.3)"};
 			opacity: ${props => props.isVisible === true ? 1 : 0};
 		}
-		
+
 		${mediaQuery(BREAKPOINT_TABLET)} {
 			width: 100%;
 			padding: 0 16px;
-			
+
 			.title {
 				display: none;
 			}
 		}
 	}
-
-	strong {
-		font-size: 2rem;
-	}
-
-	color: ${Color.black};
 `;
 
 const Section2 = () => {
-	const [ref, isVisible] = useIntersectionObserver({threshold: 0, root: null, rootMargin: "-300px"});
+	const [ref, isVisible] = useIntersectionObserver({threshold: 0, root: null, rootMargin: "-300px 0px"});
 	
 	return (
 		<Container ref={ref} isVisible={isVisible}>

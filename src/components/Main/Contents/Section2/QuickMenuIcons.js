@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import {MenuData_MainContentsSection2} from "../../../../Data";
 import Color from "../../../../Color";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	width: 70%;
@@ -9,9 +9,15 @@ const Container = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	
+
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		width: 100%;
+	}
+
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: center;
 	}
 `;
 
@@ -34,6 +40,12 @@ const QuickMenu = styled.div`
 	align-items: center;
 	cursor: pointer;
 
+	// 1번째 2번째 항목 제외
+	// -> 첫 row 제외
+	:not(:nth-child(1)):not(:nth-child(2)) {
+		margin-top: 1rem;
+	}
+
 	i {
 		color: ${Color.lightgrey};
 		width: 3rem;
@@ -47,7 +59,7 @@ const QuickMenu = styled.div`
 	&:hover i {
 		color: ${Color.red};
 	}
-	
+
 	&:hover ${Text} {
 		text-decoration: underline;
 	}
@@ -57,16 +69,12 @@ const QuickMenu = styled.div`
 const QuickMenuIcons = ({isVisible}) => {
 	return (
 		<Container>
-			{
-				MenuData_MainContentsSection2.map((menu, index) => {
-					return (
-						<QuickMenu key={index} isVisible={isVisible}>
-							<i className={"material-icons"}>{menu.icon}</i>
-							<Text>{MenuData_MainContentsSection2[index].content}</Text>
-						</QuickMenu>
-					)
-				})
-			}
+			{MenuData_MainContentsSection2.map((menu, index) => (
+				<QuickMenu key={index} isVisible={isVisible}>
+					<i className={"material-icons"}>{menu.icon}</i>
+					<Text>{MenuData_MainContentsSection2[index].content}</Text>
+				</QuickMenu>
+			))}
 		</Container>
 	)
 };

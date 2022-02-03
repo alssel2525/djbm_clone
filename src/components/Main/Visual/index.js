@@ -5,7 +5,7 @@ import ButtonWithIcon from "./ButtonWithIcon";
 import Slider from "./Slider";
 import Color from "../../../Color";
 import {News} from "../../../Data";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET, BreakPoints} from "../../../hooks/mediaQuery";
 
 const Container = styled.div`
 	height: 100vh;
@@ -46,6 +46,20 @@ const TextContainer = styled.div`
 	span {
 		font-weight: 300;
 	}
+
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		max-width: 80%;
+		margin-top: 10rem;
+		color: ${Color.white};
+
+		strong {
+			font-size: 2.5rem;
+		}
+
+		span {
+			display: none;
+		}
+	}
 `
 
 const Arrow = styled.div`
@@ -65,6 +79,10 @@ const Arrow = styled.div`
 		border: solid ${Color.white} 2px;
 		transition: 0.2s;
 
+		:nth-child(2) {
+			top: 5rem;
+		}
+
 		&:hover {
 			border-color: ${Color.red};
 			background: ${Color.red};
@@ -78,9 +96,22 @@ const Arrow = styled.div`
 			transform: translate(-50%, -50%);
 		}
 	}
-	
+
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		right: 16px;
+	}
+
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		top: 10rem;
+
+		div {
+			width: 3rem;
+			height: 3rem;
+
+			:nth-child(2) {
+				top: 3.5rem;
+			}
+		}
 	}
 `
 
@@ -105,9 +136,20 @@ const Visual = () => {
 	
 	useEffect(() => {
 		document.fonts.ready.then(() => {
-			setLeft(ref.current.getBoundingClientRect().left);
+			if (document.body.scrollWidth <= BreakPoints[BREAKPOINT_MOBILE]) {
+				setLeft(0);
+			}
+			else
+				setLeft(ref.current.getBoundingClientRect().left);
 		})
-		window.addEventListener("resize", () => setLeft(ref.current.getBoundingClientRect().left));
+		window.addEventListener("resize", () => {
+			if (document.body.scrollWidth <= BreakPoints[BREAKPOINT_MOBILE]) {
+				setLeft(0);
+			}
+			else {
+				setLeft(ref.current.getBoundingClientRect().left);
+			}
+		});
 	}, []);
 	
 	return (
@@ -133,7 +175,7 @@ const Visual = () => {
 					<div onClick={() => increaseCarouselIndex()}>
 						<i className={"material-icons"}>arrow_forward</i>
 					</div>
-					<div onClick={() => decreaseCarouselIndex()} style={{top: "5rem"}}>
+					<div onClick={() => decreaseCarouselIndex()}>
 						<i className={"material-icons"}>arrow_back</i>
 					</div>
 				</Arrow>

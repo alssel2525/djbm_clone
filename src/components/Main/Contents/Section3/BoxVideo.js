@@ -2,21 +2,8 @@ import styled from "styled-components";
 import video_button from "../../../../images/video_button.png";
 import thumbnail from "../../../../images/thumbnail.jpg";
 import Color from "../../../../Color";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
-const Container = styled.div`
-	width: 400px;
-	height: 16rem;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	
-	border-bottom: 1px solid ${Color.grey};
-	
-	${mediaQuery(BREAKPOINT_TABLET)} {
-		width: 60%;
-	}
-`;
 
 const Video = styled.div`
 	width: 100%;
@@ -39,7 +26,7 @@ const Text = styled.div`
 	line-height: 3rem;
 	font-weight: bold;
 	position: relative;
-	
+
 	::after {
 		content: "keyboard_arrow_right";
 		font-family: Material Icons, sans-serif;
@@ -49,6 +36,30 @@ const Text = styled.div`
 		color: ${Color.grey};
 	}
 `
+
+const Container = styled.div`
+	width: 400px;
+	height: 16rem;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+
+	border-bottom: 1px solid ${Color.grey};
+
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 60%;
+	}
+
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100%;
+		height: 100%;
+		border-bottom: none;
+
+		${Text} {
+			display: none;
+		}
+	}
+`;
 
 const BoxVideo = () => {
 	return (

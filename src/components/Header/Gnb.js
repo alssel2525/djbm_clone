@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
-import mediaQuery, {BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
 import {useEffect, useState} from "react";
 
 const Container = styled.nav`
@@ -79,7 +79,8 @@ const Container = styled.nav`
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
-		transition: 0.5s right ease;
+		opacity: 0;
+		transition: 0.5s right ease, opacity 0.5s ease;
 		background: ${Color.white};
 		border-top: ${Color.red} solid 70px;
 		box-sizing: border-box;
@@ -119,6 +120,7 @@ const Container = styled.nav`
 
 		${props => props.isActive === true && css`
 			right: 0;
+			opacity: 1;
 
 			::after {
 				visibility: visible;
@@ -129,6 +131,24 @@ const Container = styled.nav`
 	}
 
 	// end tablet
+	
+	// start mobile
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		width: 100vw;
+		right: -100vw;
+		opacity: 0;
+		transition: opacity 0.5s ease, right 0.5s ease;
+		
+		::after {
+			display: none;
+		}
+
+		${props => props.isActive === true && css`
+			right: 0;
+			opacity: 1;
+		`}
+	}
+	// end mobile
 `
 
 const Depth2 = styled.div`

@@ -4,19 +4,6 @@ import thumbnail from "../../../../images/galleryThumbView.jfif"
 import {Link} from "react-router-dom";
 import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
-const Container = styled.div`
-	width: 400px;
-	height: 16rem;
-	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	border-bottom: 1px solid ${Color.grey};
-	
-	${mediaQuery(BREAKPOINT_TABLET)} {
-		width: 60%;
-	}
-`;
-
 const Document = styled.div`
 	width: 100%;
 	height: 13rem;
@@ -56,14 +43,14 @@ const Document = styled.div`
 		justify-content: center;
 		box-sizing: border-box;
 		overflow: hidden;
-		
+
 		.line {
 			margin-bottom: 1rem;
 			width: 2rem;
 			height: 5px;
 			background: ${Color.red};
 		}
-		
+
 		a {
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -81,7 +68,7 @@ const Document = styled.div`
 			font-weight: normal;
 		}
 	}
-	
+
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		justify-content: space-evenly;
 	}
@@ -102,6 +89,30 @@ const Text = styled.div`
 		color: ${Color.grey};
 	}
 `
+
+const Container = styled.div`
+	width: 400px;
+	height: 16rem;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	border-bottom: 1px solid ${Color.grey};
+
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 60%;
+	}
+
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 100%;
+		height: 100%;
+		border-bottom: none;
+		
+		${Text} {
+			display: none;
+		}
+	}
+`;
+
 
 const BoxDocument = () => {
 	return (
