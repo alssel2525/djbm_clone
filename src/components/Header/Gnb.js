@@ -79,7 +79,8 @@ const Container = styled.nav`
 		display: flex;
 		flex-direction: column;
 		justify-content: left;
-		transition: 0.5s right ease;
+		opacity: 0;
+		transition: 0.5s right ease, opacity 0.5s ease;
 		background: ${Color.white};
 		border-top: ${Color.red} solid 70px;
 		box-sizing: border-box;
@@ -119,6 +120,7 @@ const Container = styled.nav`
 
 		${props => props.isActive === true && css`
 			right: 0;
+			opacity: 1;
 
 			::after {
 				visibility: visible;
@@ -134,6 +136,8 @@ const Container = styled.nav`
 	${mediaQuery(BREAKPOINT_MOBILE)} {
 		width: 100vw;
 		right: -100vw;
+		opacity: 0;
+		transition: opacity 0.5s ease, right 0.5s ease;
 		
 		::after {
 			display: none;
@@ -141,6 +145,7 @@ const Container = styled.nav`
 
 		${props => props.isActive === true && css`
 			right: 0;
+			opacity: 1;
 		`}
 	}
 	// end mobile
