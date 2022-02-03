@@ -15,6 +15,11 @@ const Container = styled.div`
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		width: 60%;
 	}
+	
+	${mediaQuery(BREAKPOINT_TABLET)} {
+		width: 100%;
+		border: none;
+	}
 `;
 
 const Content = styled.div`

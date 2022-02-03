@@ -2,12 +2,13 @@ import styled from "styled-components";
 import BoxVideo from "./BoxVideo";
 import BoxQna from "./BoxQna";
 import BoxDocument from "./BoxDocument";
-import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
     width: 100vw;
 	position: relative;
 	padding: 2rem 0;
+	box-sizing: border-box;
 	
 	.__1280 {
 		width: 1280px;
@@ -27,6 +28,14 @@ const Container = styled.div`
 				margin-top: 1rem;
 			}
 		}
+		
+		${mediaQuery(BREAKPOINT_MOBILE)} {
+			padding: 0;
+		}
+	}
+	
+	${mediaQuery(BREAKPOINT_MOBILE)} {
+		padding-bottom: 0;
 	}
 `;
 
