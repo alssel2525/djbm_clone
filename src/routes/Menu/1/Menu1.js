@@ -1,5 +1,5 @@
 import {Route, Routes, useParams} from "react-router-dom";
-import Menu11 from "../../../components/Menu/1/Menu11";
+import Menu11 from "../../../components/Menu/1/1";
 
 
 const Menu1 = () => {
