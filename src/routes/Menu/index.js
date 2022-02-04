@@ -14,7 +14,7 @@ const Menu = () => {
 	const componentSwitch = () => {
 		switch (params.depth1) {
 			case "1":
-				return <Route path={"/*"} element={<Menu1 depth2={params.depth2}/>}/>;
+				return <Route path={"/*"} element={<Menu1/>}/>;
 			case "2":
 				return <Route path={"/*"} element={<Tmp/>}/>;
 			case "3":
