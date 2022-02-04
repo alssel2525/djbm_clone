@@ -68,24 +68,35 @@ const List = styled.div`
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+	position: relative;
 	box-sizing: border-box;
-	
+
 	a {
 		font-size: 1.1rem;
 		font-weight: 400;
 		color: ${Color.black};
 		cursor: pointer;
 		text-decoration: none;
-		
+
 		:nth-child(${props => props.nowDepth2}) {
 			color: ${Color.red};
 			font-weight: 700;
 		}
-		
+
 		:hover {
 			color: ${Color.red};
 			font-weight: 700;
 		}
+	}
+
+	::after {
+		content: "";
+		position: absolute;
+		width: 100vw;
+		left: 50%;
+		bottom: 0;
+		transform: translateX(-50%);
+		border-bottom: 1px solid ${Color.lightgrey};
 	}
 `
 
