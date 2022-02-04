@@ -2,8 +2,8 @@ import styled, {css} from "styled-components";
 import {Menus} from "../../Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
-import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET} from "../../hooks/mediaQuery";
-import {useEffect, useState} from "react";
+import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET, useMediaQuery} from "../../hooks/mediaQuery";
+import {useEffect, useRef, useState} from "react";
 
 const Container = styled.nav`
 	width: 840px;
@@ -131,14 +131,14 @@ const Container = styled.nav`
 	}
 
 	// end tablet
-	
+
 	// start mobile
 	${mediaQuery(BREAKPOINT_MOBILE)} {
 		width: 100vw;
 		right: -100vw;
 		opacity: 0;
 		transition: opacity 0.5s ease, right 0.5s ease;
-		
+
 		::after {
 			display: none;
 		}
@@ -148,6 +148,7 @@ const Container = styled.nav`
 			opacity: 1;
 		`}
 	}
+
 	// end mobile
 `
 
@@ -203,9 +204,18 @@ const Depth2 = styled.div`
 	// end tablet
 `
 
-const Gnb = ({isHover, isActive}) => {
+const Gnb = ({isHover, isActive, setIsHover, setIsActive}) => {
 	const [activeIndex, setActiveIndex] = useState(-1);
+	const [isPc, setIsPc] = useState(true);
+	const pcQueryRef = useRef(window.matchMedia(useMediaQuery(BREAKPOINT_PC)));
 	
+	useEffect(() => {
+		pcQueryRef.current.addEventListener("change", () => {
+			setIsPc(pcQueryRef.current.matches);
+		});
+	}, []);
+	
+	// table & mobile에서 gnb 클릭에 따라 lnb가 보이도록 함
 	useEffect(() => {
 		const depth2s = document.querySelectorAll(`.content .depth2`);
 		depth2s.forEach((element, index) => {
@@ -230,21 +240,30 @@ const Gnb = ({isHover, isActive}) => {
 		})
 	}, [activeIndex]);
 	
-	
 	return (
 		<Container isHover={isHover} isActive={isActive}>
-			{Menus.map((menu, index) => (
-				<div key={index} className={"content"}>
+			{Menus.map((menu, depth1Index) => (
+				<div key={depth1Index} className={"content"}>
 					<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}
 						onClick={() => setActiveIndex(prevState => {
-							if (prevState === index) return -1; else return index
+							if (prevState === depth1Index) return -1; else return depth1Index
 						})}>
-						<Link to={"/"} className={"depth1"}>{menu.depth1}</Link>
-						<div className={"Gnb--showButton material-icons"}>expand_more</div>
+						<Link to={`/menu/${depth1Index + 1}/1`} className={"depth1"} onClick={(event) => {
+							if (!isPc) event.preventDefault();
+							else {
+								setIsHover(false);
+								setIsActive(false);
+							}
+						}}>
+							{menu.depth1}
+						</Link>
+						<div className={"Gnb--showButton material-icons"}>
+							expand_more
+						</div>
 					</div>
 					<Depth2 isHover={isHover} className={"depth2"}>
 						{menu.depth2.map((depth2item, index) => (
-							<Link to={"/"} key={index}>{depth2item}</Link>
+							<Link to={`/menu/${depth1Index + 1}/${index + 1}`} key={index}>{depth2item}</Link>
 						))}
 					</Depth2>
 				</div>

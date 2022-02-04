@@ -142,14 +142,20 @@ const Visual = () => {
 			else
 				setLeft(ref.current.getBoundingClientRect().left);
 		})
-		window.addEventListener("resize", () => {
+		
+		const resizeEventListener = () => {
 			if (document.body.scrollWidth <= BreakPoints[BREAKPOINT_MOBILE]) {
 				setLeft(0);
 			}
 			else {
 				setLeft(ref.current.getBoundingClientRect().left);
 			}
-		});
+		}
+		window.addEventListener("resize", resizeEventListener);
+		
+		return () => {
+			window.removeEventListener("resize", resizeEventListener);
+		}
 	}, []);
 	
 	return (

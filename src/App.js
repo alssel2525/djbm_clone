@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import Main from "./routes/Main";
 import Footer from "./components/Footer";
+import Menu from "./routes/Menu";
 
 const AppContainer = styled.div`
 	width: 100vw;
@@ -27,7 +28,7 @@ function App() {
 					<Header/>
 					<Routes>
 						<Route path={"/"} element={<Main/>}/>
-						<Route path={"/menu/"} element={<Main/>}/>
+						<Route path={"/menu/*"} element={<Menu/>}/>
 					</Routes>
 					<Footer/>
 				</AppContainer>

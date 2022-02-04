@@ -31,4 +31,9 @@ const mediaQuery = (query) => {
 	return `@media (max-width: ${BreakPoints[query]}px)`;
 };
 
+export const useMediaQuery = (query) => {
+	if (query === BREAKPOINT_PC) return `(min-width: ${BreakPoints[query]}px)`;
+	return `(max-width: ${BreakPoints[query]}px)`;
+}
+
 export default mediaQuery;
