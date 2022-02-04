@@ -28,7 +28,7 @@ function App() {
 					<Header/>
 					<Routes>
 						<Route path={"/"} element={<Main/>}/>
-						<Route path={"/menu/*"} element={<Menu/>}/>
+						<Route path={"/menu/:depth1/:depth2"} element={<Menu/>}/>
 					</Routes>
 					<Footer/>
 				</AppContainer>
