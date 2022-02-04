@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Color from "../../../Color";
 import Snb1 from "../../../images/sub1.jpg";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Menus} from "../../../Data";
 
 const Container = styled.div`
@@ -60,6 +60,35 @@ const Title = styled.div`
 	}
 `
 
+const List = styled.div`
+	height: 70px;
+	width: 1280px;
+	padding: 0 110px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	box-sizing: border-box;
+	
+	a {
+		font-size: 1.1rem;
+		font-weight: 400;
+		color: ${Color.black};
+		cursor: pointer;
+		text-decoration: none;
+		
+		:nth-child(${props => props.nowDepth2}) {
+			color: ${Color.red};
+			font-weight: 700;
+		}
+		
+		:hover {
+			color: ${Color.red};
+			font-weight: 700;
+		}
+	}
+`
+
 const Snb = () => {
 	const params = useParams();
 	
@@ -73,6 +102,11 @@ const Snb = () => {
 					<span>{Menus[params.depth1 - 1].depth2[params.depth2 - 1]}</span>
 				</div>
 			</Title>
+			<List nowDepth2={params.depth2}>
+				{Menus[params.depth1 - 1].depth2.map((depth2, index) => (
+					<Link to={`/menu/${params.depth1}/${index + 1}`} key={index}>{depth2}</Link>
+				))}
+			</List>
 		</Container>
 	)
 };
