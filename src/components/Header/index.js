@@ -83,11 +83,11 @@ const Header = () => {
 	}
 	
 	return (
-		<Container onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} isActive={isActive}>
+		<Container onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)} isActive={isActive}>
 			<div className={`__1280`}>
 				<Link to={"/"} className={"logo"}/>
 				<Utils isKor={isKor} setIsKor={setIsKor}/>
-				<Gnb isHover={isHover} isActive={isActive}/>
+				<Gnb isHover={isHover} isActive={isActive} setIsHover={setIsHover} setIsActive={setIsActive}/>
 				<i className={"material-icons Header--MenuButton"} onClick={toggleIsActive}
 					style={{position: isActive ? "fixed" : "absolute"}}>{isActive ? `close` : `menu_open`}</i>
 			</div>

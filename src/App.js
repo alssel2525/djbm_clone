@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import Main from "./routes/Main";
 import Footer from "./components/Footer";
+import Menu from "./routes/Menu";
 
 const AppContainer = styled.div`
 	width: 100vw;
@@ -12,6 +13,11 @@ const AppContainer = styled.div`
 	padding: 0;
 	position: relative;
 	overflow: hidden;
+	
+	// sticky footer를 위해
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 `
 
 function App() {
@@ -22,6 +28,7 @@ function App() {
 					<Header/>
 					<Routes>
 						<Route path={"/"} element={<Main/>}/>
+						<Route path={"/menu/:depth1/:depth2/*"} element={<Menu/>}/>
 					</Routes>
 					<Footer/>
 				</AppContainer>
