@@ -4,7 +4,6 @@ import Color from "../../../Color";
 const Container = styled.div`
 	width: 100%;
 	position: relative;
-	margin-top: 3rem;
 	margin-bottom: 5rem;
 	font-size: 2rem;
 	font-weight: 700;

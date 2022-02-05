@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Color from "../../../../Color";
 import before1 from "../../../../images/before1.png"
 import djbm_bg from "../../../../images/djbm_bg.png"
+import face1 from "../../../../images/face1.png";
+import face2 from "../../../../images/face2.png";
 import mediaQuery, {BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
 const Container = styled.div`
@@ -26,6 +28,7 @@ const Container = styled.div`
 
 	.text {
 		margin-top: 1.5rem;
+		margin-bottom: 5rem;
 		padding: 2rem 3rem;
 		box-sizing: border-box;
 		position: relative;
@@ -74,22 +77,115 @@ const Container = styled.div`
 		}
 	}
 
+	// 현장목소리 & 규제실상
+	article {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 3rem 7rem;
+		text-align: center;
+		background: ${Color.lightGreyBlue};
+		border: 1px solid ${Color.lightgrey};
+		box-sizing: border-box;
+
+		ul {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			position: relative;
+
+			li {
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				border-radius: 25px;
+				margin-top: 1rem;
+				position: relative;
+				background: ${Color.white};
+				text-decoration: none;
+				list-style: none;
+			}
+
+			// 현장목소리
+			:first-child {
+				> li {
+					border: 2px dashed ${Color.lightgrey};
+
+					::before {
+						content: "";
+						width: 50px;
+						height: 50px;
+						position: absolute;
+						left: 0;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						display: block;
+						color: ${Color.grey};
+						background: ${Color.white};
+						border: 2px solid ${Color.blue}B0;
+						border-radius: 50%;
+					}
+
+					:nth-child(even)::before {
+						background-image: url(${face1});
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+
+					:nth-child(odd)::before {
+						background-image: url(${face2});
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+				}
+			}
+
+			// 규제실상
+			:not(:first-child) {
+				margin-left: 5rem;
+
+				> li {
+					border: 2px solid ${Color.grey}70;
+					font-weight: 700;
+
+					::before {
+						content: "arrow_right";
+						position: absolute;
+						left: -2.5rem;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						font-family: Material Icons, sans-serif;
+						font-size: 2rem;
+						color: ${Color.grey};
+					}
+				}
+
+			}
+
+		}
+
+		.article-title {
+			color: ${Color.blue};
+			font-size: 1.5rem;
+			padding-bottom: 1rem;
+			font-weight: 700;
+		}
+	}
 
 	::after {
 		content: "";
 		width: 425px;
 		height: 353px;
 		position: absolute;
-		top: 50%;
+		top: 0;
 		right: 4rem;
-		transform: translateY(-50%);
 		background-image: url("${djbm_bg}");
 	}
 
 	${mediaQuery(BREAKPOINT_TABLET)} {
 		text-align: center;
 		margin: 0 auto;
-		
+
 		.title {
 			margin: 0 auto;
 		}
@@ -106,7 +202,6 @@ const Container = styled.div`
 
 
 const Content1 = () => {
-	console.log(before1)
 	return (
 		<Container>
 			<div>
@@ -125,6 +220,22 @@ const Content1 = () => {
 					신기술을 보유했으나 그간 각종 규제로 인하여 사업 기회에 제약을 받았던 기업들이 규제로부터 자유롭게 신사업을 추진할 수 있도록 한 한국형 규제샌드박스로, 규제자유특구를 통해 신기술을 개발·검증하거나 신제품 출시가 가능하도록 제도화
 				</span>
 			</div>
+			<article>
+				<ul>
+					<div className={"article-title"}>현장목소리</div>
+					<li>한번 테스트라도!</li>
+					<li>임시로 허가를!</li>
+					<li>되는건지 안 되는 건지?</li>
+					<li>규제망을 피할 수 없어!</li>
+				</ul>
+				<ul>
+					<div className={"article-title"}>규제실상</div>
+					<li>규정이 애매해!</li>
+					<li>법령상 안돼!</li>
+					<li>규정이 없어!</li>
+					<li>촘촘한 규제!</li>
+				</ul>
+			</article>
 		</Container>
 	)
 };
