@@ -205,7 +205,7 @@ const Content1 = () => {
 	return (
 		<Container>
 			<div>
-				<span className={"title"}>규제자유특구는</span>
+				<h2 className={"title"}>규제자유특구는</h2>
 				<span className={"explain"}>
 					‘규제자유특구 및 지역특화발전특구에 관한 규제특례법’에 따라서 수도권을 제외한&nbsp;
 					<strong>광역자치단체에 혁신사업이나 전략산업을 육성</strong>
