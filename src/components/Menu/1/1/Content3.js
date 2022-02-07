@@ -58,9 +58,8 @@ const Container = styled.div`
 						width: 5px;
 						height: 5px;
 						position: absolute;
-						top: 0.5rem;
+						top: calc((1rem - 5px) * 0.5); // (line-height 1rem - height 5px) / 2
 						left: 0;
-						transform: translateY(-50%);
 						display: block;
 						border-radius: 50%;
 						background-color: ${Color.lightgrey};
