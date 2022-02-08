@@ -57,7 +57,6 @@ const Container = styled.div`
 `;
 
 const Content1 = () => {
-	// TODO 실증내용 디자인 처리하기
 	return (
 		<Container>
 			<SubHeading>대전바이오메디컬 규제자유특구 개요</SubHeading>
@@ -78,9 +77,9 @@ const Content1 = () => {
 					<li>
 						<h3>실증내용</h3>
 						<div style={{display: "inline-block", verticalAlign: "top"}}>
-							- 기업전용 인체유래물은행 공동운영 실증(4개기관)<br/>
-							- 체외진단기기 신의료기술평가 유예 절차 간소화 실증(4개 기관, 10개사)<br/>
-							- 병원체자원 공용연구시설 구축·운영으로 백신·치료제 조기 상용화 실증(4개기관, 12개사)
+							<span style={{display: "inline-block", marginTop: "1rem"}}>- 기업전용 인체유래물은행 공동운영 실증(4개기관)</span><br/>
+							<span style={{display: "inline-block", marginTop: "1rem"}}>- 체외진단기기 신의료기술평가 유예 절차 간소화 실증(4개 기관, 10개사)</span><br/>
+							<span style={{display: "inline-block", marginTop: "1rem"}}>- 병원체자원 공용연구시설 구축·운영으로 백신·치료제 조기 상용화 실증(4개기관, 12개사)</span>
 						</div>
 					</li>
 				</ul>
