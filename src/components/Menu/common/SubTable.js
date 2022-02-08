@@ -6,7 +6,7 @@ const Container = styled.table`
 	border-top: 3px solid ${Color.black};
 	border-bottom: 1px solid ${Color.grey}90;
 	margin: 1.5rem 0;
-	font-family: 'Noto Sans KR', serif;
+	font-family: 'Noto Sans KR', "Sora", sans-serif;
 	border-collapse: collapse;
 
 	th {
