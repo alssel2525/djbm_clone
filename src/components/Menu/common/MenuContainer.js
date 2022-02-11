@@ -6,7 +6,7 @@ const Container = styled.div`
 	margin: 0 auto;
 	padding-bottom: 3.5rem;
 	position: relative;
-	font-family: 'Noto Sans KR', serif;
+	font-family: 'Noto Sans KR', sans-serif;
 
 	> * {
 		margin-top: 3.5rem;
