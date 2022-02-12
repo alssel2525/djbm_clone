@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import Color from "../../../Color";
 
-const Container = styled.div`
+const Container = styled.h1`
 	width: 100%;
 	position: relative;
-	margin-bottom: 5rem;
 	font-size: 2rem;
 	font-weight: 700;
 	color: ${Color.black};
