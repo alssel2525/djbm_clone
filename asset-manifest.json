@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/djbm_clone/static/css/main.4a8223b9.css",
-    "main.js": "/djbm_clone/static/js/main.070e1da5.js",
+    "main.js": "/djbm_clone/static/js/main.81608ec8.js",
     "static/media/noto-sans-kr-v21-latin_korean-900.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-900.8444deb1ddd1382f885b.woff",
     "static/media/noto-sans-kr-v21-latin_korean-700.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-700.dd82b8d05295b5342b0f.woff",
     "static/media/noto-sans-kr-v21-latin_korean-500.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-500.7046fe21508c26f17759.woff",
@@ -15,6 +15,7 @@
     "static/media/noto-sans-kr-v21-latin_korean-300.woff2": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-300.a20f48e33e385abf1da2.woff2",
     "static/media/noto-sans-kr-v21-latin_korean-100.woff2": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-100.9924075a2afae0dbe9b4.woff2",
     "static/media/sub1.jpg": "/djbm_clone/static/media/sub1.236a2a30045841125a76.jpg",
+    "static/media/map.png": "/djbm_clone/static/media/map.bd9305665a6eae03beb6.png",
     "static/media/djbm_bg.png": "/djbm_clone/static/media/djbm_bg.e9e05a7312312b64b462.png",
     "static/media/Sora-ExtraLight.ttf": "/djbm_clone/static/media/Sora-ExtraLight.6a1229bf672d1e012528.ttf",
     "static/media/Sora-Light.ttf": "/djbm_clone/static/media/Sora-Light.7e014c416e8b4ba50bf8.ttf",
@@ -29,10 +30,10 @@
     "static/media/galleryThumbView.jfif": "/djbm_clone/static/media/galleryThumbView.94104f9ceaa50367cacf.jfif",
     "index.html": "/djbm_clone/index.html",
     "main.4a8223b9.css.map": "/djbm_clone/static/css/main.4a8223b9.css.map",
-    "main.070e1da5.js.map": "/djbm_clone/static/js/main.070e1da5.js.map"
+    "main.81608ec8.js.map": "/djbm_clone/static/js/main.81608ec8.js.map"
   },
   "entrypoints": [
     "static/css/main.4a8223b9.css",
-    "static/js/main.070e1da5.js"
+    "static/js/main.81608ec8.js"
   ]
 }
