@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Color from "../../../Color";
 import Snb1 from "../../../images/sub1.jpg";
 import {Link, useParams} from "react-router-dom";
-import {Menus} from "../../../Data";
+import {Menus} from "../../../Data/Data";
 
 const Container = styled.div`
 	width: 100vw;

@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {Menus} from "../../Data";
+import {Menus} from "../../Data/Data";
 import {Link} from "react-router-dom";
 import Color from "../../Color";
 import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_PC, BREAKPOINT_TABLET, useMediaQuery} from "../../hooks/mediaQuery";

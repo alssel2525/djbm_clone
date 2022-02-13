@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {MainContentSection1Cards} from "../../../../Data";
+import {MainContentSection1Cards} from "../../../../Data/Data";
 import Card from "./Card";
 import useIntersectionObserver from "../../../../hooks/useIntersectionObserver";
 import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";

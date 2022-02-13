@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {News} from "../../../Data";
+import {News} from "../../../Data/Data";
 import Color from "../../../Color";
 import {useEffect, useRef} from "react";
 import mediaQuery, {BREAKPOINT_MOBILE} from "../../../hooks/mediaQuery";

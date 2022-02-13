@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Color from "../../../Color";
 import {useParams} from "react-router-dom";
-import {Menus} from "../../../Data";
+import {Menus} from "../../../Data/Data";
 
 const Container = styled.h1`
 	width: 100%;

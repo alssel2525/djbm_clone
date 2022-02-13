@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {MenuData_MainContentsSection2} from "../../../../Data";
+import {MenuData_MainContentsSection2} from "../../../../Data/Data";
 import Color from "../../../../Color";
 import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET} from "../../../../hooks/mediaQuery";
 
