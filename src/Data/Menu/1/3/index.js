@@ -1,0 +1,77 @@
+export const Menu_1_3_1 = [
+	{
+		id: 1,
+		businessOwner: "충남대학교병원",
+		link: "https://www.cnuh.co.kr/",
+		manager: "윤환중 병원장",
+		location: "대전광역시 중구 문화로 282",
+		note: "인체유래물은행 공동운영(검체정보 수집 및 제공, 공동운영위원회 참여)",
+	},
+	{
+		id: 2,
+		businessOwner: "대전을지대학교병원",
+		link: "http://www.emc.ac.kr/",
+		manager: "박준영 재단이사장",
+		location: "대전광역시 서구 둔산서로 95",
+		note: "인체유래물은행 공동운영(검체정보 수집 및 제공, 공동운영위원회 참여)",
+	},
+	{
+		id: 3,
+		businessOwner: "건양대학교병원",
+		link: "https://www.kyuh.ac.kr/",
+		manager: "최원준 병원장",
+		location: "대전광역시 서구 관저동로 158",
+		note: "인체유래물은행 공동운영(검체정보 수집 및 제공, 공동운영위원회 참여)",
+	},
+	{
+		id: 4,
+		businessOwner: "대전테크노파크",
+		link: "https://www.djtp.or.kr/",
+		manager: "임헌문 원장",
+		location: "대전광역시 유성구 유성대로 1662",
+		note: "인체유래물은행 공동운영(공동운영위원회 운영, 공동분양 심의위원회 운영)",
+	},
+];
+
+export const Menu_1_3_2 = [
+	{
+		id: 1,
+		businessOwner: "㈜바이오니아",
+		link: "https://www.bioneer.co.kr/index.php/",
+		manager: "박한오 대표",
+		location: "대전광역시 대덕구 문평서로 8-11",
+		note: "세균성/열대성 감염질환 진단키트",
+	},
+	{
+		id: 2,
+		businessOwner: "㈜시선바이오머티리얼스",
+		link: "http://www.seasunbio.com/ko/",
+		manager: "박희경 대표",
+		location: "대전광역시 유성구 테크노1로 11-3",
+		note: "진단제/유전질환 관련 진단",
+	},
+	{
+		id: 3,
+		businessOwner: "㈜이앤에스헬스케어",
+		link: "http://ens-healthcare.com/eng/main.php",
+		manager: "서경훈 대표",
+		location: "대전광역시 유성구 테크노1로 11-3",
+		note: "유방암·난소암 진단키트",
+	},
+	{
+		id: 4,
+		businessOwner: "㈜수젠텍",
+		link: "http://sugentech.com/KOR/",
+		manager: "손미진 대표",
+		location: "대전광역시 유성구 테크노2로 187",
+		note: "면역질환 진단키트",
+	},
+	{
+		id: 5,
+		businessOwner: "㈜레보스케치",
+		link: "http://www.revosketch.com/",
+		manager: "이성운 대표",
+		location: "대전광역시 유성구 과학로 125",
+		note: "분자진단기기",
+	},
+];
