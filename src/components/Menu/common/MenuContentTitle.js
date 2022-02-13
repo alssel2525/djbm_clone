@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Color from "../../../Color";
+import {useParams} from "react-router-dom";
+import {Menus} from "../../../Data/Data";
 
 const Container = styled.h1`
 	width: 100%;
@@ -8,7 +10,7 @@ const Container = styled.h1`
 	font-weight: 700;
 	color: ${Color.black};
 	text-align: center;
-	
+
 	::after {
 		content: "";
 		width: 5rem;
@@ -21,10 +23,12 @@ const Container = styled.h1`
 	}
 `;
 
-const MenuContentTitle = (props) => {
+const MenuContentTitle = () => {
+	const params = useParams();
+	
 	return (
 		<Container>
-			{props.children}
+			{Menus[parseInt(params.depth1) - 1].depth2[parseInt(params.depth2) - 1]}
 		</Container>
 	)
 };

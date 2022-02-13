@@ -4,7 +4,7 @@ import visual from "../../../images/visual.webp"
 import ButtonWithIcon from "./ButtonWithIcon";
 import Slider from "./Slider";
 import Color from "../../../Color";
-import {News} from "../../../Data";
+import {News} from "../../../Data/Data";
 import mediaQuery, {BREAKPOINT_MOBILE, BREAKPOINT_TABLET, BreakPoints} from "../../../hooks/mediaQuery";
 
 const Container = styled.div`
