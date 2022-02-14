@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Color from "../../../../Color";
 import {useState} from "react";
+import Tab1 from "./Tab1";
+import Tab2 from "./Tab2";
 
 const Container = styled.div`
 	width: 100%;
@@ -105,7 +107,6 @@ const Container = styled.div`
 const Content1 = () => {
 	const [activeTab, setActiveTab] = useState(1);
 	
-	
 	return (
 		<Container activeTab={activeTab}>
 			<a className={"system"} href={"https://portal.djbm.or.kr:8443/djbm/"} target={"_blank"} rel="noreferrer">
@@ -119,6 +120,8 @@ const Content1 = () => {
 					<span>분양절차</span>
 				</li>
 			</ul>
+			<Tab1 isActive={activeTab === 1}/>
+			<Tab2 isActive={activeTab === 2}/>
 		</Container>
 	)
 };
