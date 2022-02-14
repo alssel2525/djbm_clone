@@ -1,13 +1,13 @@
 import MenuContainer from "../../common/MenuContainer";
 import MenuContentTitle from "../../common/MenuContentTitle";
-import Content1 from "./Content1";
+import TabSelector from "./TabSelector";
 
 
 const Menu21 = () => {
 	return (
 		<MenuContainer>
 			<MenuContentTitle/>
-			<Content1/>
+			<TabSelector/>
 		</MenuContainer>
 	)
 };

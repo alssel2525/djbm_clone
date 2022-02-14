@@ -7,7 +7,7 @@ import Tab2 from "./Tab2";
 const Container = styled.div`
 	width: 100%;
 	box-sizing: border-box;
-	
+
 	a.system {
 		height: 3rem;
 		line-height: 1rem;
@@ -35,6 +35,8 @@ const Container = styled.div`
 	ul.tab {
 		width: 100%;
 		height: 50px;
+		margin: 0;
+		padding: 0;
 		display: table;
 		table-layout: fixed;
 		position: relative;
@@ -49,8 +51,9 @@ const Container = styled.div`
 			text-align: center;
 			border: 1px solid ${Color.lightgrey};
 			transition: 0.3s ease all;
+			cursor: pointer;
 			box-sizing: border-box;
-			
+
 			::before {
 				content: "";
 				width: 100%;
@@ -61,7 +64,7 @@ const Container = styled.div`
 				background: ${Color.blueLighter};
 				transition: 0.3s ease all;
 			}
-			
+
 			span {
 				width: 100%;
 				height: 100%;
@@ -69,18 +72,18 @@ const Container = styled.div`
 				color: ${Color.black};
 				transition: 0.3s ease all;
 			}
-			
+
 			:hover {
 				::before {
 					height: 100%;
 				}
-				
+
 				span {
 					color: ${Color.white};
 				}
 			}
 		}
-		
+
 		li:nth-child(${props => props.activeTab}) {
 			::before {
 				height: 100%;
@@ -89,7 +92,7 @@ const Container = styled.div`
 			span {
 				color: ${Color.white};
 			}
-			
+
 			::after {
 				content: "";
 				width: 15px;
@@ -104,7 +107,7 @@ const Container = styled.div`
 	}
 `;
 
-const Content1 = () => {
+const TabSelector = () => {
 	const [activeTab, setActiveTab] = useState(1);
 	
 	return (
@@ -126,4 +129,4 @@ const Content1 = () => {
 	)
 };
 
-export default Content1;
+export default TabSelector;
