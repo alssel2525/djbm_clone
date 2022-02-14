@@ -103,6 +103,14 @@ const List = styled.div`
 const Snb = () => {
 	const params = useParams();
 	
+	// 유효한 param 값인지 확인하고
+	// 아니라면 Snb를 표시하지 않음
+	if (!
+		((1 <= parseInt(params.depth1) && parseInt(params.depth1) <= Menus.length) &&
+			(1 <= parseInt(params.depth2) && parseInt(params.depth2) <= Menus[params.depth1 - 1].depth2.length))) {
+		return null;
+	}
+	
 	return (
 		<Container>
 			<Title>
