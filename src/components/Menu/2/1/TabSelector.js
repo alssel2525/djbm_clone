@@ -35,7 +35,7 @@ const Container = styled.div`
 	ul.tab {
 		width: 100%;
 		height: 50px;
-		margin: 0;
+		margin-bottom: 5rem;
 		padding: 0;
 		display: table;
 		table-layout: fixed;
