@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Color from "../../../../Color";
+import {Link} from "react-router-dom";
 
 const Container = styled.div`
 	padding: 40px;
@@ -49,7 +50,7 @@ const Table = styled.table`
 		> tr {
 			counter-increment: index;
 			line-height: 2rem;
-			
+
 			> td {
 				height: 100px;
 				padding: 40px;
@@ -57,11 +58,11 @@ const Table = styled.table`
 				border: 1px solid ${Color.lightgrey};
 				position: relative;
 				box-sizing: border-box;
-				
+
 				// 운영절차
 				:nth-child(1) {
 					font-weight: 500;
-					
+
 					::before {
 						content: counter(index, decimal-leading-zero);
 						width: 2.5rem;
@@ -78,7 +79,7 @@ const Table = styled.table`
 						font-family: 'Sora', sans-serif;
 						font-weight: 600;
 					}
-					
+
 					// 2. 'IRB 심의'의 표
 					.review_grid {
 						margin-top: 1rem;
@@ -86,7 +87,7 @@ const Table = styled.table`
 						grid-gap: 5px;
 						font-weight: 400;
 						line-height: 1.5rem;
-						
+
 						div {
 							padding: 1rem;
 							display: flex;
@@ -95,15 +96,17 @@ const Table = styled.table`
 							align-items: center;
 							border: 1px solid ${Color.lightgrey};
 							border-radius: 10px;
-							
+
 							:nth-child(1) {
 								grid-row: 1 / 3;
 								grid-column: 1 / 2;
 							}
+
 							:nth-child(2) {
 								grid-row: 1 / 2;
 								grid-column: 2 / 3;
 							}
+
 							:nth-child(3) {
 								grid-row: 2 / 3;
 								grid-column: 2 / 3;
@@ -113,16 +116,16 @@ const Table = styled.table`
 						}
 					}
 				}
-				
+
 				// 추진주체
 				:nth-child(2) {
 					div.arrow-container {
 						span {
 							position: relative;
-							
+
 							:not(:first-child) {
 								margin-left: 2rem;
-								
+
 								::before {
 									content: "play_arrow";
 									font-family: Material Icons, sans-serif;
@@ -144,10 +147,39 @@ const Table = styled.table`
 						}
 					}
 				}
-				
+
 				// 주요내용
 				:nth-child(3) {
 					text-align: left;
+
+					a {
+						padding-left: 2.5rem;
+						display: block;
+						position: relative;
+						text-decoration: underline;
+						cursor: pointer;
+						color: #000000;
+
+						div {
+							::before {
+								content: "description";
+								font-family: Material Icons, sans-serif;
+								width: 1.5rem;
+								height: 1.5rem;
+								position: absolute;
+								left: 0;
+								top: 50%;
+								transform: translateY(-50%);
+								display: flex;
+								flex-direction: column;
+								justify-content: center;
+								align-items: center;
+								border: 1px solid ${Color.lightgrey};
+								border-radius: 3px;
+								color: ${Color.blue};
+							}
+						}
+					}
 				}
 			}
 		}
@@ -199,9 +231,19 @@ const Tab2 = ({isActive}) => {
 						</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>분양신청</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>기업</span>
+								<span>대전TP</span>
+							</div>
+						</td>
+						<td>
+							<span>- (운영규정 별지 제2호~제5호 서식)</span>
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>분양신청서</div>
+							</Link>
+						</td>
 					</tr>
 					<tr>
 						<td>기업 맞춤형 컨설팅</td>
