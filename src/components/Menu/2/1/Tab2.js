@@ -23,6 +23,10 @@ const Table = styled.table`
 	box-sizing: border-box;
 
 	thead {
+		th:first-child {
+			width: 40%;
+		}
+		
 		> tr > th {
 			padding: 1rem 0;
 			font-size: 1.5rem;
@@ -243,32 +247,109 @@ const Tab2 = ({isActive}) => {
 							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
 								<div>분양신청서</div>
 							</Link>
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>임상ㆍ역학정보요청서</div>
+							</Link>
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>이용계획서</div>
+							</Link>
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>서약서</div>
+							</Link>
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>개인정보 수집ㆍ이용동의서</div>
+							</Link>
 						</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>
+							분양심의<br/>
+							(신청일로부터 14일 이내)
+						</td>
+						<td>
+							대전인체유래물은행<br/>
+							분양심의위원회
+						</td>
+						<td>- 안건에 따라 정기/임시/신속심의 진행</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>
+							분양심의 결과통보<br/>
+							(심의일로부터 14일 이내)
+						</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>대전TP</span>
+								<span>기업</span>
+							</div>
+							<div className={"arrow-container"}>
+								<span>대전TP</span>
+								<span>은행</span>
+							</div>
+						</td>
+						<td>- 승인/시정승인/보완 후 재심의/반려</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>
+							분양이전협약 체결<br/>
+							(통보일로부터 10일 이내)
+						</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>은행</span>
+								<span>기업</span>
+							</div>
+						</td>
+						<td>
+							- 분양 대상 은행과 기업간 분양이전 협약 체결(별지 10호 서식)
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>분양이전협약서</div>
+							</Link>
+						</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>
+							인체유래물 등의 분양<br/>
+							(협약일로부터 15일 이내)
+						</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>은행</span>
+								<span>기업</span>
+							</div>
+						</td>
+						<td>- 분양신청자(기업)에 직접 이전(일정 조정)</td>
 					</tr>
 					<tr>
-						<td>기업 맞춤형 컨설팅</td>
-						<td>인체유래물은행(대전TP)</td>
-						<td>- 수요 검체 조건 등에 대한 세부 논의</td>
+						<td>
+							이의신청 등<br/>
+							(수령한 날로부터 15일 이내)
+						</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>기업</span>
+								<span>은행</span>
+							</div>
+						</td>
+						<td>
+							- 손상, 용량미달 등 품질 이상 및 임상・역학 정보 불일치 등 활용이 어려운 경우
+							<Link to={"/dummy/dummy.txt"} target={"_blank"} download>
+								<div>분양(심의)이의신청서</div>
+							</Link>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							사후조치<br/>
+							(연구결과 통보)
+						</td>
+						<td>
+							<div className={"arrow-container"}>
+								<span>기업</span>
+								<span>대전TP</span>
+							</div>
+						</td>
+						<td>- 인체유래물 활용보고서 및 폐기확인서 제출</td>
 					</tr>
 				</tbody>
 			</Table>
