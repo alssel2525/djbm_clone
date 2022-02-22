@@ -7,11 +7,24 @@ const Container = styled.div`
 	border: 1px solid ${Color.lightgrey};
 	color: ${Color.black};
 	box-sizing: border-box;
+
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		position: relative;
+		display: block;
+		
+		li {
+			list-style: none;
+		}
+	}
 `;
 
 const SubBox = (props) => {
 	return (
-		<Container>
+		<Container className={props.className}>
 			{props.children}
 		</Container>
 	)
