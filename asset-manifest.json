@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/djbm_clone/static/css/main.4a8223b9.css",
-    "main.js": "/djbm_clone/static/js/main.62538796.js",
+    "main.js": "/djbm_clone/static/js/main.1c8bdaae.js",
     "static/media/noto-sans-kr-v21-latin_korean-900.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-900.8444deb1ddd1382f885b.woff",
     "static/media/noto-sans-kr-v21-latin_korean-700.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-700.dd82b8d05295b5342b0f.woff",
     "static/media/noto-sans-kr-v21-latin_korean-500.woff": "/djbm_clone/static/media/noto-sans-kr-v21-latin_korean-500.7046fe21508c26f17759.woff",
@@ -30,10 +30,10 @@
     "static/media/galleryThumbView.jfif": "/djbm_clone/static/media/galleryThumbView.94104f9ceaa50367cacf.jfif",
     "index.html": "/djbm_clone/index.html",
     "main.4a8223b9.css.map": "/djbm_clone/static/css/main.4a8223b9.css.map",
-    "main.62538796.js.map": "/djbm_clone/static/js/main.62538796.js.map"
+    "main.1c8bdaae.js.map": "/djbm_clone/static/js/main.1c8bdaae.js.map"
   },
   "entrypoints": [
     "static/css/main.4a8223b9.css",
-    "static/js/main.62538796.js"
+    "static/js/main.1c8bdaae.js"
   ]
 }
